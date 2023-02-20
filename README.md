@@ -119,5 +119,5 @@ Other Requirements:
     You can NOT use a pre-defined or built in class (other than std::vector) to solve this problem.
     See the grading policy for other requirements.
 
-URL: http://www.cs.kent.edu/~jmaletic/CS23001/programs/proj2.html
-Last update: Tue Feb 14 13:50:55 2023 EST 
+URL: <http://www.cs.kent.edu/~jmaletic/CS23001/programs/proj2.html>
+Last update: Tue Feb 14 13:50:55 2023 EST

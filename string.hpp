@@ -6,12 +6,12 @@
 //
 // Description: Interface definition of String class for Project 2, milestone 1.
 //
-//  To use the supplied test oracles you will need to use this interface and namings.
-//  You must also have all of these methods and functions defined for your string class.
+// To use the supplied test oracles you will need to use this interface and namings.
+// You must also have all of these methods and functions defined for your string class.
 //
-//  You will either have use this interface or call your methods through this interface.
+// You will either have use this interface or call your methods through this interface.
 //
-//  You need to implement all of the methods and funcitons declared here.
+// You need to implement all of the methods and funcitons declared here.
 //
 
 #ifndef CS23001_STRING_INTERFACE_HPP
