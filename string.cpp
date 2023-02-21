@@ -70,3 +70,21 @@ char String::operator[](int i) const // Accessor
     assert(i <= STRING_SIZE - 1);
     return str[i];
 }
+
+bool String::operator==(const String &rhs) const
+{
+    for (int i = 0; i < STRING_SIZE; ++i)
+    {
+        if (str[i] != rhs.str[i]) { return false; }
+    }
+    return true;
+}
+
+bool String::operator<(const String &rhs) const
+{
+    for (int i = 0; i < STRING_SIZE; ++i)
+    {
+        if (str[i] > rhs.str[i]) { return false; }
+    }
+    return true;
+}
