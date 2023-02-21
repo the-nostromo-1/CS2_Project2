@@ -54,7 +54,7 @@ void String::debugPrint(std::ostream &out) const
 }
 
 //
-// Operator overloads
+// Operator Overloads
 //
 
 char &String::operator[](int i) // Accessor/Modifier
