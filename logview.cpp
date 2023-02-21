@@ -43,18 +43,14 @@ int main(int argc, char *argv[]) {
         output_all(std::cout, log_entries);
     }
     else if (argv[1] == option[1]) {
-        std::cout << "Total number of bytes sent: " 
-                  << byte_count(log_entries) << std::endl;
+        std::cout << "Total number of bytes sent: " << byte_count(log_entries) << std::endl;
     }
     else if (argv[1] == option[2]) {
         by_host(std::cout, log_entries);
     }
     else { //Error, bad option
         std::cerr << "Unrecognized option: " << argv[1] << std::endl;
-        std::cerr << "Recognized options: " 
-             << option[0] << " "
-             << option[1] << " "
-             << option[2] << std::endl;
+        std::cerr << "Recognized options: " << option[0] << " " << option[1] << " " << option[2] << std::endl;
         exit(3);
     }
     return 0;

@@ -18,6 +18,7 @@
 #define CS23001_STRING_INTERFACE_HPP
 
 #include <iostream>
+#include <cassert>
 
 const int STRING_SIZE = 256; // The size of the String.
 
@@ -34,6 +35,7 @@ public:
     int length() const;         // Number of char in string
     char &operator[](int);      // Accessor/Modifier
     char operator[](int) const; // Accessor
+    void debugPrint(std::ostream &out) const; // for debugging
 
     String &operator+=(const String &); // Concatenation
     bool operator==(const String &) const;
