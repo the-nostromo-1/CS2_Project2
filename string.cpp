@@ -16,7 +16,7 @@ String::String() // default constructor for empty string
 
 String::String(char newChar) : String() // string ('x')
 {
-    for (int i = 0; i < STRING_SIZE; ++i) { str[i] = newChar; }
+    for (int i = 0; i < 1; ++i) { str[i] = newChar; }
 }
 
 String::String(const char charArray[]) : String() // string ('abcd')
@@ -51,6 +51,18 @@ void String::debugPrint(std::ostream &out) const
     while (str[length] != '\0') { ++length; }
     for (int i = 0; i < length; ++i) { out << str[i] << " "; }
     std::cout << std::endl;
+}
+
+String String::substr(int start, int finish) const // Sub from staring to ending positions
+{
+    String newSubString;
+    int subTracker = 0;
+    for (int i = start; i < finish; ++i)
+    {
+        newSubString[subTracker] = str[i];
+        ++subTracker;
+    }
+    return newSubString;
 }
 
 //
@@ -88,3 +100,4 @@ bool String::operator<(const String &rhs) const
     }
     return true;
 }
+

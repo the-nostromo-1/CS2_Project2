@@ -27,10 +27,10 @@ private:
 
 
 class Time {
-  public:
-            Time() {};
-  private:
-    int     hour, minute, second;
+public:
+    Time() {};
+private:
+    int hour, minute, second;
 };
 
 

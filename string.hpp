@@ -20,7 +20,7 @@
 #include <iostream>
 #include <cassert>
 
-const int STRING_SIZE = 256; // The size of the String.
+const int STRING_SIZE = 5; // The size of the String.
 
 // CLASS INV:   str[length()] == 0 &&
 //              0 <= length() <= capacity() &&
