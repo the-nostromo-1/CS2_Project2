@@ -35,7 +35,18 @@ String::String(const char charArray[]) : String() // string ('abcd')
 //
 int String::capacity() const // max chars that can be stored
 {
+    return 0;
+}
 
+int String::findch(int pos, char myChar) const // Location of character starting at a position
+{
+    int length = 0;
+    while (str[length] != '\0') { ++length; }
+    for (int i = pos; i < length; ++i)
+    {
+        if (str[i] == myChar) { return i; }
+    }
+    return -1;
 }
 
 int String::length() const // Number of char in string
@@ -56,6 +67,9 @@ void String::debugPrint(std::ostream &out) const
 String String::substr(int start, int finish) const // Sub from staring to ending positions
 {
     String newSubString;
+    if (start < 0) { start = 0; }
+    if (finish < start) { return newSubString; }
+    if (finish >= length()) { finish = (length() - 1); }
     int subTracker = 0;
     for (int i = start; i < finish; ++i)
     {
@@ -85,19 +99,15 @@ char String::operator[](int i) const // Accessor
 
 bool String::operator==(const String &rhs) const
 {
-    for (int i = 0; i < STRING_SIZE; ++i)
-    {
-        if (str[i] != rhs.str[i]) { return false; }
-    }
-    return true;
+    int i = 0;
+    while ((str[i] != '\0') && (rhs.str[i] != '\0') && (str[i] == rhs.str[i])) { ++i; }
+    return str[i] == rhs.str[i];
 }
 
 bool String::operator<(const String &rhs) const
 {
-    for (int i = 0; i < STRING_SIZE; ++i)
-    {
-        if (str[i] > rhs.str[i]) { return false; }
-    }
-    return true;
+    int i = 0;
+    while ((str[i] != '\0') && (rhs.str[i] != '\0') && (str[i] == rhs.str[i])) { ++i; }
+    return str[i] < rhs.str[i];
 }
 

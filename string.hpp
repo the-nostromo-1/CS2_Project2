@@ -20,28 +20,28 @@
 #include <iostream>
 #include <cassert>
 
-const int STRING_SIZE = 5; // The size of the String.
+const int STRING_SIZE = 15; // The size of the String.
 
 // CLASS INV:   str[length()] == 0 &&
 //              0 <= length() <= capacity() &&
 //              capacity() == STRING_SIZE - 1
 class String {
 public:
-    String();             // Empty string
-    String(char);         // Stirng('x')
-    String(const char[]); // String("abcd")
+    String(); // done   // Empty string
+    String(char); // done   // Stirng('x')
+    String(const char[]); // done   // String("abcd")
 
     int capacity() const;       // Max chars that can be stored
-    int length() const;         // Number of char in string
-    char &operator[](int);      // Accessor/Modifier
-    char operator[](int) const; // Accessor
-    void debugPrint(std::ostream &out) const; // for debugging
+    int length() const; // done   // Number of char in string
+    char &operator[](int); // done   // Accessor/Modifier
+    char operator[](int) const; // done   // Accessor
+    void debugPrint(std::ostream &out) const; // done   // for debugging
 
     String &operator+=(const String &); // Concatenation
-    bool operator==(const String &) const;
-    bool operator<(const String &) const;
-    String substr(int, int) const;          // Sub from staring to ending positions
-    int findch(int, char) const;            // Location of charater starting at a position
+    bool operator==(const String &) const; // done
+    bool operator<(const String &) const; // done
+    String substr(int, int) const; // done   // Sub from staring to ending positions
+    int findch(int, char) const; // done   // Location of charater starting at a position
     int findstr(int, const String &) const; // Location of string starting at a position
 
     friend std::istream &operator>>(std::istream &, String &);
