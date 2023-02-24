@@ -20,7 +20,7 @@
 #include <iostream>
 #include <cassert>
 
-const int STRING_SIZE = 15; // The size of the String.
+const int STRING_SIZE = 20; // The size of the String.
 
 // CLASS INV:   str[length()] == 0 &&
 //              0 <= length() <= capacity() &&
@@ -31,7 +31,7 @@ public:
     String(char); // done   // Stirng('x')
     String(const char[]); // done   // String("abcd")
 
-    int capacity() const;       // Max chars that can be stored
+    int capacity() const; // done?   // Max chars that can be stored
     int length() const; // done   // Number of char in string
     char &operator[](int); // done   // Accessor/Modifier
     char operator[](int) const; // done   // Accessor

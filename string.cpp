@@ -11,12 +11,13 @@
 //
 String::String() // default constructor for empty string
 {
-    for (int i = 0; i < STRING_SIZE; ++i) { str[i] = 'x'; }
+    str[0] = 0;
 }
 
 String::String(char newChar) : String() // string ('x')
 {
-    for (int i = 0; i < 1; ++i) { str[i] = newChar; }
+    str[0] = newChar;
+    str[1] = 0;
 }
 
 String::String(const char charArray[]) : String() // string ('abcd')
@@ -33,10 +34,7 @@ String::String(const char charArray[]) : String() // string ('abcd')
 //
 // Class Methods
 //
-int String::capacity() const // max chars that can be stored
-{
-    return 0;
-}
+int String::capacity() const { return (STRING_SIZE - 1); } // max chars that can be stored
 
 int String::findch(int pos, char myChar) const // Location of character starting at a position
 {
@@ -111,3 +109,15 @@ bool String::operator<(const String &rhs) const
     return str[i] < rhs.str[i];
 }
 
+String &String::operator+=(const String &rhs)
+{
+    int offset = this->length(); // explicitly calling 'this' for understanding of function
+    int rhsLength = rhs.length() + 1; // include null terminator
+    for (int i = 0; i < rhsLength; i++)
+    {
+        if ((offset + i) >= capacity()) { break; }
+        str[offset + i] = rhs.str[i];
+    }
+    str[offset + rhsLength - 1] = '\0'; // add null terminator
+    return *this;
+}
