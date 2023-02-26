@@ -109,15 +109,51 @@ bool String::operator<(const String &rhs) const
     return str[i] < rhs.str[i];
 }
 
+String operator+(String lhs, const String &rhs)
+{
+    String newString;
+    int lhsLength = lhs.length();
+    int rhsLength = rhs.length();
+    for (int i = 0; i < lhsLength; ++i)
+    {
+        if ((lhsLength + i) >= STRING_SIZE) { break; }
+        newString[i] = lhs[i];
+    }
+    int newOffset = newString.length();
+    for (int j = 0; j < rhsLength; ++j)
+    {
+        if (newOffset >= STRING_SIZE) { break; }
+        newString[newOffset + j] = rhs[j];
+    }
+    newString[newOffset + rhsLength] = '\0';
+    return newString;
+}
+
 String &String::operator+=(const String &rhs)
 {
     int offset = this->length(); // explicitly calling 'this' for understanding of function
     int rhsLength = rhs.length() + 1; // include null terminator
-    for (int i = 0; i < rhsLength; i++)
+    for (int i = 0; i < rhsLength; ++i)
     {
         if ((offset + i) >= capacity()) { break; }
         str[offset + i] = rhs.str[i];
     }
-    str[offset + rhsLength - 1] = '\0'; // add null terminator
+    str[offset + rhsLength] = '\0'; // add null terminator
     return *this;
+}
+
+std::ostream &operator<<(std::ostream &out, const String &rhs)
+{
+    int i = 0;
+    while (rhs.str[i] != '\0')
+    { 
+        out << rhs.str[i] << " ";
+        ++i;
+    }
+    return out;
+}
+
+std::istream &operator>>(std::istream &in, String &rhs)
+{
+    return in;
 }

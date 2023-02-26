@@ -17,6 +17,10 @@ int main()
 	anotherString.debugPrint(std::cout);
 	newString += anotherString;
 	newString.debugPrint(std::cout);
+	std::cout << newString << std::endl;
+
+	String addStr = myString + anotherString;
+	std::cout << addStr << std::endl;
 
 	return 0;
 }

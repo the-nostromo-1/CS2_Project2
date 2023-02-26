@@ -20,7 +20,7 @@
 #include <iostream>
 #include <cassert>
 
-const int STRING_SIZE = 20; // The size of the String.
+const int STRING_SIZE = 256; // The size of the String.
 
 // CLASS INV:   str[length()] == 0 &&
 //              0 <= length() <= capacity() &&
@@ -37,7 +37,7 @@ public:
     char operator[](int) const; // done   // Accessor
     void debugPrint(std::ostream &out) const; // done   // for debugging
 
-    String &operator+=(const String &); // Concatenation
+    String &operator+=(const String &); // done   // Concatenation
     bool operator==(const String &) const; // done
     bool operator<(const String &) const; // done
     String substr(int, int) const; // done   // Sub from staring to ending positions
@@ -45,13 +45,13 @@ public:
     int findstr(int, const String &) const; // Location of string starting at a position
 
     friend std::istream &operator>>(std::istream &, String &);
-    friend std::ostream &operator<<(std::ostream &, const String &);
+    friend std::ostream &operator<<(std::ostream &, const String &); // done
 
 private:
     char str[STRING_SIZE];
 };
 
-String operator+(String, const String &);
+String operator+(String, const String &); // done
 bool operator==(const char[], const String &);
 bool operator==(char, const String &);
 bool operator<(const char[], const String &);
