@@ -21,6 +21,8 @@ int main()
 
 	String addStr = myString + anotherString;
 	std::cout << addStr << std::endl;
+	bool a = addStr != myString;
+	std::cout << a << std::endl;
 
 	return 0;
 }

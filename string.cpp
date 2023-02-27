@@ -102,6 +102,13 @@ bool String::operator==(const String &rhs) const
     return str[i] == rhs.str[i];
 }
 
+bool operator!=(const String &lhs, const String &rhs)
+{
+    int i = 0;
+    while ((lhs[i] != '\0') && (rhs[i] != '\0') && (lhs[i] == rhs[i])) { ++i; }
+    return lhs[i] != rhs[i];
+}
+
 bool String::operator<(const String &rhs) const
 {
     int i = 0;
@@ -153,7 +160,7 @@ std::ostream &operator<<(std::ostream &out, const String &rhs)
     return out;
 }
 
-std::istream &operator>>(std::istream &in, String &rhs)
-{
-    return in;
-}
+// std::istream &operator>>(std::istream &in, String &rhs)
+// {
+//     return in;
+// }

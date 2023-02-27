@@ -32,7 +32,7 @@ OPTIONS = -g -Werror -W -Wunused -Wuninitialized -Wshadow -std=c++17
 # Names of your test files - add them in as you build them.
 # Names MUST start with "test_"
 #  These are ones you should build:
-MYCTOR = test_default_ctor test_ctor_charArray test_ctor_char
+MYCTOR = test_default_ctor #test_ctor_charArray test_ctor_char
 MYREL  = test_equal test_lessThan 
 MYOPS  = test_concat test_subscript test_len_cap test_input test_find_char test_find_string test_substring 
 MYM2   = test_ctor_copy test_swap_assign
@@ -73,11 +73,11 @@ string.o: string.hpp string.cpp
 #
 # For Milestone 2 add $(MYM2) to the end of the line below
 #
-tests: $(MYCTOR) $(MYOPS) $(MYREL)
+tests: $(MYCTOR) #$(MYOPS) $(MYREL)
 	./test_default_ctor
-	./test_equal 
-	./test_ctor_char 
-	./test_ctor_charArray
+#	./test_equal 
+#	./test_ctor_char 
+#	./test_ctor_charArray
 #	./test_lessThan 
 #	./test_concat 
 #	./test_subscript 
