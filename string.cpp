@@ -50,6 +50,18 @@ int String::findch(int pos, char myChar) const // Location of character starting
     return -1;
 }
 
+int String::findstr(int start, const String &rhs) const
+{
+    for (int i = start; i <= length(); ++i)
+    {
+        if (substr(i, (i + rhs.length() - 1)) == rhs)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
 int String::length() const // Number of char in string
 {
     int length = 0;
@@ -68,7 +80,6 @@ void String::debugPrint(std::ostream &out) const
 String String::substr(int start, int finish) const // Sub from staring to ending positions
 {
     String newSubString;
-    if (start < 0) { start = 0; }
     if (finish < start) { return newSubString; }
     if (finish >= length()) { finish = (length() - 1); }
     int subTracker = 0;

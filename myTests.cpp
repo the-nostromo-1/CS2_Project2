@@ -13,7 +13,7 @@ int main()
 	String newString("abcd");
 
 	String anotherString("mm");
-	// anotherString += myString;
+
 	anotherString.debugPrint(std::cout);
 	newString += anotherString;
 	newString.debugPrint(std::cout);
