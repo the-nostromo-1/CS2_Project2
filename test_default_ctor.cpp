@@ -1,6 +1,7 @@
 //
-//
-//
+// Testing Defualt Constructor
+// David J Tinley
+// 02/25/2023
 //
 
 #include "string.hpp"
@@ -8,37 +9,23 @@
 int main()
 {
     {
-        // Test
-        String a("a");
+        // Testing
+        String a;
+
         // Verify
-        assert(a == "a");
-        std::cout << a << "== a: Passed..." << std::endl;
+        assert(a == "\0");
+        std::cout << "a == '0' * STRING_SIZE: Passed..." << std::endl;
     }
 
     {
-        // Test
-        String a("abcdefgh");
+        // Testing
+        String a;
+
         // Verify
-        assert(a == "abcdefgh");
-        std::cout << a << "== a b c d e f g h: Passed..." << std::endl;
+        assert(a != "1");
+        std::cout << "a != 1: Passed..." << std::endl;
     }
 
-    {
-        // Test
-        String a("abcdefghijklmnop");
-        // Verify
-        assert(a == "abcdefghijklmnop");
-        std::cout << a << "== a b c d e f g h i j k l m n o p: Passed..." << std::endl;
-    }
-
-    {
-        // Test
-        String a("abc");
-        // Verify
-        assert(a != "abcdefgh");
-        std::cout << a << "!= a b c d e f g h: Passed..." << std::endl;
-    }
-
-    std::cout << "Done testing default constructor" << std::endl;
+    std::cout << "Done testing default constructor." << std::endl;
     return 0;
 }

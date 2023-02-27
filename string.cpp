@@ -11,7 +11,10 @@
 //
 String::String() // default constructor for empty string
 {
-    str[0] = 0;
+    for (int i = 0; i < STRING_SIZE; ++i)
+    {
+        str[i] = 0;
+    }
 }
 
 String::String(char newChar) : String() // string ('x')
