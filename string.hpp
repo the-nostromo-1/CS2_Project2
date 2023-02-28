@@ -31,23 +31,21 @@ public:
     String(); // done   // Empty string
     String(char); // done   // Stirng('x')
     String(const char[]); // done   // String("abcd")
-
+//
     int capacity() const; // done?   // Max chars that can be stored
     int length() const; // done   // Number of char in string
     char &operator[](int); // done   // Accessor/Modifier
     char operator[](int) const; // done   // Accessor
     void debugPrint(std::ostream &out) const; // done   // for debugging
-
     String &operator+=(const String &); // done   // Concatenation
     bool operator==(const String &) const; // done
     bool operator<(const String &) const; // done
     String substr(int, int) const; // done   // Sub from staring to ending positions
     int findch(int, char) const; // done   // Location of charater starting at a position
     int findstr(int, const String &) const; // done // Location of string starting at a position
-
-    friend std::istream &operator>>(std::istream &, String &);
+//
+    friend std::istream &operator>>(std::istream &, String &); // done
     friend std::ostream &operator<<(std::ostream &, const String &); // done
-
 private:
     char str[STRING_SIZE];
 };

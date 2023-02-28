@@ -15,21 +15,19 @@ int main()
 	String anotherString("mm");
 
 	String moreString("abcd");
-
-	char a = 'a';
-
-	// anotherString.debugPrint(std::cout);
+	// char a = 'a';
+	anotherString.debugPrint(std::cout);
 	// newString += anotherString;
-	// newString.debugPrint(std::cout);
-	// std::cout << newString << std::endl;
+	newString.debugPrint(std::cout);
+	std::cout << newString << std::endl;
 
-	// String addStr = myString + anotherString;
-	// std::cout << addStr << std::endl;
-	// bool a = addStr != myString;
-	// std::cout << a << std::endl;
+	String addStr = myString + anotherString;
+	std::cout << addStr << std::endl;
+	bool a = addStr != myString;
+	std::cout << a << std::endl;
 
-	// std::cout << (a <= moreString) << std::endl;
-	// std::cout << (a >= moreString) << std::endl;
+	std::cout << (a <= moreString) << std::endl;
+	std::cout << (a >= moreString) << std::endl;
 
 	std::ifstream in;
 	in.open("test.txt");
