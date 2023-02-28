@@ -38,11 +38,8 @@ int main()
 		std::cerr << "File not found: data1-1.txt" << std::endl;
 		exit(1);
 	}
-	String aString, bString;
-	while (in >> aString >> bString)
-	{
-		std::cout << aString << std::endl;
-	}
+	String aString;
+	while (in >> aString) { std::cout << aString << std::endl; }
 	in.close();
 	return 0;
 }

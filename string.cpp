@@ -225,16 +225,5 @@ std::ostream &operator<<(std::ostream &out, const String &rhs)
 
 std::istream &operator>>(std::istream &in, String &rhs)
 {
-    rhs = String();
-    char number = '.';
-    char numberArray[STRING_SIZE];
-    int i = 0;
-    do
-    {
-        in >> numberArray;
-        ++i;
-    } while (in);
-    int newCapacity = i;
-    for (int j = 0; j < newCapacity; ++j) { rhs.str[j] = numberArray[j]; }
-    return in;
+    return in >> rhs.str;
 }
