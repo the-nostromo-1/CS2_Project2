@@ -123,6 +123,55 @@ bool operator!=(const String &lhs, const String &rhs)
     return lhs[i] != rhs[i];
 }
 
+bool operator==(const char charArray[], const String &rhs)
+{
+    int i = 0;
+    while ((charArray[i] != '\0') && (rhs[i] != '\0') && (charArray[i] == rhs[i])) { ++i; }
+    return charArray[i] == rhs[i];
+}
+
+bool operator==(char charParam, const String &rhs)
+{
+    int i = 0;
+    while ((charParam != '\0') && (rhs[i] != '\0') && (charParam == rhs[i])) { ++i; }
+    return charParam == rhs[i];
+}
+
+bool operator<(const char charArray[], const String &rhs)
+{
+    int i = 0;
+    while ((charArray[i] != '\0') && (rhs[i] != '\0') && (charArray[i] == rhs[i])) { ++i; }
+    return charArray[i] < rhs[i];
+}
+
+bool operator<(char charParam, const String &rhs)
+{
+    int i = 0;
+    while ((charParam != '\0') && (rhs[i] != '\0') && (charParam == rhs[i])) { ++i; }
+    return charParam < rhs[i];
+}
+
+bool operator<=(const String &lhs, const String &rhs)
+{
+    int i = 0;
+    while ((lhs[i] != '\0') && (rhs[i] != '\0') && (lhs[i] == rhs[i])) { ++i; }
+    return lhs[i] <= rhs[i];
+}
+
+bool operator>(const String &lhs, const String &rhs)
+{
+    int i = 0;
+    while ((lhs[i] != '\0') && (rhs[i] != '\0') && (lhs[i] == rhs[i])) { ++i; }
+    return lhs[i] > rhs[i];
+}
+
+bool operator>=(const String &lhs, const String &rhs)
+{
+    int i = 0;
+    while ((lhs[i] != '\0') && (rhs[i] != '\0') && (lhs[i] == rhs[i])) { ++i; }
+    return lhs[i] > rhs[i];
+}
+
 bool String::operator<(const String &rhs) const
 {
     int i = 0;
@@ -174,7 +223,18 @@ std::ostream &operator<<(std::ostream &out, const String &rhs)
     return out;
 }
 
-// std::istream &operator>>(std::istream &in, String &rhs)
-// {
-//     return in;
-// }
+std::istream &operator>>(std::istream &in, String &rhs)
+{
+    rhs = String();
+    char number = '.';
+    char numberArray[STRING_SIZE];
+    int i = 0;
+    do
+    {
+        in >> numberArray;
+        ++i;
+    } while (in);
+    int newCapacity = i;
+    for (int j = 0; j < newCapacity; ++j) { rhs.str[j] = numberArray[j]; }
+    return in;
+}

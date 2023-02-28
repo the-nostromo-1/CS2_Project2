@@ -19,6 +19,7 @@
 
 #include <iostream>
 #include <cassert>
+#include <fstream>
 
 const int STRING_SIZE = 256; // The size of the String.
 
@@ -42,7 +43,7 @@ public:
     bool operator<(const String &) const; // done
     String substr(int, int) const; // done   // Sub from staring to ending positions
     int findch(int, char) const; // done   // Location of charater starting at a position
-    int findstr(int, const String &) const; // Location of string starting at a position
+    int findstr(int, const String &) const; // done // Location of string starting at a position
 
     friend std::istream &operator>>(std::istream &, String &);
     friend std::ostream &operator<<(std::ostream &, const String &); // done
@@ -52,13 +53,13 @@ private:
 };
 
 String operator+(String, const String &); // done
-bool operator==(const char[], const String &);
-bool operator==(char, const String &);
-bool operator<(const char[], const String &);
-bool operator<(char, const String &);
-bool operator<=(const String &, const String &);
-bool operator!=(const String &, const String &);
-bool operator>=(const String &, const String &);
-bool operator>(const String &, const String &);
+bool operator==(const char[], const String &); // done
+bool operator==(char, const String &); // done
+bool operator<(const char[], const String &); // done
+bool operator<(char, const String &); // done
+bool operator<=(const String &, const String &); // done
+bool operator!=(const String &, const String &); // done
+bool operator>=(const String &, const String &); // done
+bool operator>(const String &, const String &); // done
 
 #endif
