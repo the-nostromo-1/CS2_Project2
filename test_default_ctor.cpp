@@ -14,7 +14,7 @@ int main()
 
         // Verify
         assert(a == "\0");
-        std::cout << "a == '0' * STRING_SIZE: Passed..." << std::endl;
+        std::cout << "a == '0': Passed..." << std::endl;
     }
 
     {

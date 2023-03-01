@@ -37,6 +37,7 @@ String::String(char newChar) : String() // Character Constructor
 String::String(const char charArray[]) : String() // Character Array Constructor
 {
     stringSize = 0;
+    str = new char[stringSize];
     while (str[stringSize] != '\0') { ++stringSize; }
     str = new char[stringSize];
     for (int i = 0; i < stringSize; ++i) { str[i] = charArray[i]; }
@@ -60,7 +61,7 @@ String::~String() { delete str; }
 //
 int String::capacity() const // max chars that can be stored
 {
-    return (this->stringSize - 1);
+    return (this->length());
 }
 
 int String::findch(int pos, char myChar) const // Location of character starting at a position

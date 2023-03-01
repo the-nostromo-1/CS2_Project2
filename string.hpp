@@ -1,11 +1,11 @@
-//File:        string.hpp
+// File:        string.hpp
 //
-//Version:     1.1
-//Date:        Sprint 2023
-//Author:      Dr. J. Maletic
+// Version:     1.1
+// Date:        Sprint 2023
+// Author:      Dr. J. Maletic
 //
-//Description: Interface definition of String class for use with test oracle.
-//             For use with Project 2, milestone 2, 3, 4.
+// Description: Interface definition of String class for use with test oracle.
+// For use with Project 2, milestone 2, 3, 4.
 //
 // To use the supplied test oracles you will need to use this interface and namings.
 // You must also have all of these methods and functions defined for your string class.
@@ -21,25 +21,25 @@
 #include <iostream>
 #include <fstream>
 
-
 // CLASS INV: str[length()] == 0             &&
 //            length()      == capacity()    &&
 //            capacity()    == stringSize - 1
+
 class String
 {
     public:
-        String();                  // Empty string
-        String(char newChar);              // String('x')
-        String(const char charArray[]);      // String("abc")
-        String(const String &rhs);    // Copy Constructor
-        ~String();                 // Destructor
-        void swap(String &);       // Constant time swap
-        String &operator=(String); // Assignment Copy
+        String();                       // Empty string
+        String(char newChar);           // String('x')
+        String(const char charArray[]); // String("abc")
+        String(const String &rhs);      // Copy Constructor
+        ~String();                      // Destructor
+        void swap(String &);            // Constant time swap
+        String &operator=(String);      // Assignment Copy
 
-        int capacity() const;       // Max chars that can be stored
-        int length() const;         // Actual number of chars in string
-        char &operator[](int);      // Accessor/Modifier
-        char operator[](int) const; // Accessor
+        int capacity() const;           // Max chars that can be stored
+        int length() const;             // Actual number of chars in string
+        char &operator[](int);          // Accessor/Modifier
+        char operator[](int) const;     // Accessor
 
         String &operator+=(const String &);
         bool operator==(const String &) const;
