@@ -11,27 +11,46 @@
 //
 String::String() // default constructor for empty string
 {
-    for (int i = 0; i < STRING_SIZE; ++i)
-    {
-        str[i] = 0;
-    }
+    stringSize = 1;
+    str = new char[stringSize];
+    str[0] = '\0';
+
 }
 
 String::String(char newChar) : String() // string ('x')
 {
-    str[0] = newChar;
-    str[1] = 0;
+    if (newChar != '\0')
+    {
+        stringSize = 2;
+        str = new char[stringSize];
+        str[0] = newChar;
+        str[1] = '\0';
+    }
+    else
+    {
+        stringSize = 1;
+        str = new char[stringSize];
+        str[0] = '\0';
+    }
 }
 
 String::String(const char charArray[]) : String() // string ('abcd')
 {
-    int i = 0;
-    while (charArray[i] != '\0' && i < STRING_SIZE - 1)
+    stringSize = 0;
+    while (str[stringSize] != '\0') { ++stringSize; }
+    str = new char[stringSize];
+    for (int i = 0; i < stringSize; ++i) { str[i] = charArray[i]; }
+    str[stringSize] = '\0';
+}
+
+String::String(const String &rhs)
+{
+    stringSize = rhs.stringSize;
+    str = new char[stringSize];
+    for (int i = 0; i < stringSize; ++i)
     {
-        str[i] = charArray[i];
-        i++;
+        str[i] = rhs.str[i];
     }
-    str[i] = '\0'; // adds the null terminator to the last 'i' in the array
 }
 
 //
