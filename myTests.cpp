@@ -8,25 +8,41 @@
 
 int main()
 {
-    String *myString = new String("baaacd");
+    String myString("baaacd");
+    
+    std::cout << "String one size: " << myString.getStringSize() << std::endl;
+    //String newString("abcdef");
 
-    String *newString = new String("abcdef");
+    String anotherString("mm");
 
-    String *anotherString = new String("mm");
+    std::cout << "String two size: " << anotherString.getStringSize() << std::endl;
+    //String moreString("abcd");
 
-    String *moreString = new String("abcd");
+    //String cpyString = moreString; // testing copy constructor
 
-    bool a = anotherString == myString;
-    std::cout << a << std::endl;
+    anotherString += myString;
 
-    std::cout << (anotherString <= moreString) << std::endl;
-    std::cout << (newString >= moreString) << std::endl;
-    std::cout << moreString[0] << std::endl;
+    for (int i = 0; i < anotherString.length(); ++i)
+    {
+        std::cout << anotherString[i] << " ";
+    }
 
-    delete moreString;
-    delete anotherString;
-    delete myString;
-    delete newString;
+    std::cout << myString.substr(1, 3) << std::endl;
+    std::cout << std::endl;
+    std::cout << "Capacity: " << anotherString.capacity() << std::endl;
+    std::cout << "Length: " << anotherString.length() << std::endl;
+    std::cout << "String Size: " << anotherString.getStringSize() << std::endl;
+    std::cout << std::endl;
+
+    // bool a = anotherString == myString; // testing equality operator
+    // std::cout << a << std::endl;
+
+    // int b = moreString.findch(1, 'c');
+    // std::cout << b << std::endl;
+    // std::cout << (anotherString <= moreString) << std::endl;
+    // std::cout << (newString >= moreString) << std::endl;
+    // std::cout << moreString[0] << std::endl;
+    // std::cout << cpyString[0] << std::endl;
 
     // std::ifstream in;
     // in.open("test.txt");

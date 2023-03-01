@@ -11,47 +11,34 @@
 //
 String::String() // Default Constructor
 {
-    stringSize = 1;
-    str = new char[stringSize];
+    str = new char[1];
     str[0] = '\0';
-
+    stringSize = 1;
 }
 
-String::String(char newChar) : String() // Character Constructor
+String::String(char newChar) // Character Constructor
 {
-    if (newChar != '\0')
-    {
-        stringSize = 2;
-        str = new char[stringSize];
-        str[0] = newChar;
-        str[1] = '\0';
-    }
-    else
-    {
-        stringSize = 1;
-        str = new char[stringSize];
-        str[0] = '\0';
-    }
+    str = new char[2];
+    str[0] = newChar;
+    str[1] = '\0';
+    stringSize = 2;
 }
 
-String::String(const char charArray[]) : String() // Character Array Constructor
+String::String(const char charArray[]) // Character Array Constructor
 {
     stringSize = 0;
-    str = new char[stringSize];
-    while (str[stringSize] != '\0') { ++stringSize; }
+    while (charArray[stringSize] != '\0') { ++stringSize; }
+    ++stringSize;
     str = new char[stringSize];
     for (int i = 0; i < stringSize; ++i) { str[i] = charArray[i]; }
-    str[stringSize] = '\0';
+    str[stringSize-1] = '\0';
 }
 
 String::String(const String &rhs) // Copy Constructor
 {
     stringSize = rhs.stringSize;
     str = new char[stringSize];
-    for (int i = 0; i < stringSize; ++i)
-    {
-        str[i] = rhs.str[i];
-    }
+    for (int i = 0; i < stringSize; ++i) { str[i] = rhs.str[i]; }
 }
 
 String::~String() { delete str; }
@@ -59,9 +46,13 @@ String::~String() { delete str; }
 //
 // Class Methods
 //
+int String::getStringSize() const{
+    return stringSize;
+}
+
 int String::capacity() const // max chars that can be stored
 {
-    return (this->length());
+    return (stringSize - 1);
 }
 
 int String::findch(int pos, char myChar) const // Location of character starting at a position
@@ -98,20 +89,32 @@ String String::substr(int start, int finish) const // Sub from staring to ending
 {
     String newSubString;
     if (finish < start) { return newSubString; }
-    if (finish >= length()) { finish = (length() - 1); }
+    if (finish > length()) { finish = length(); }
 
     newSubString.stringSize = (finish - start) + 1;
-    newSubString.str = new char[stringSize];
+    newSubString.str = new char[newSubString.stringSize];
 
     int subTracker = 0;
-    for (int i = start; i < finish; ++i)
+    for (int i = start; i <= finish; ++i)
     {
-        newSubString[subTracker] = str[i];
-        ++subTracker;
+        newSubString[i] = str[i];
     }
 
-    newSubString.str[stringSize] = '\0';
+    newSubString.str[newSubString.stringSize - 1] = '\0';
     return newSubString;
+}
+
+void String::swap(String &rhs)
+{
+    int tempSize;
+    tempSize = rhs.stringSize;
+    rhs.stringSize = stringSize;
+    stringSize = tempSize;
+
+    char *tempString;
+    tempString = rhs.str;
+    rhs.str = str;
+    str = tempString; 
 }
 
 //
@@ -220,14 +223,19 @@ String operator+(String lhs, const String &rhs)
 
 String &String::operator+=(const String &rhs)
 {
-    int offset = this->length(); // explicitly calling 'this' for understanding of function
-    int rhsLength = rhs.length() + 1; // include null terminator
-    for (int i = 0; i < rhsLength; ++i)
-    {
-        if ((offset + i) >= capacity()) { break; }
-        str[offset + i] = rhs.str[i];
-    }
-    str[offset + rhsLength] = '\0'; // add null terminator
+    int newStringSize = stringSize + rhs.stringSize - 1;
+    char *tempChar = new char[newStringSize];
+    for (int i = 0; i < this->length(); ++i) { tempChar[i] = str[i]; }
+    for (int i = 0; i < rhs.length(); ++i) { tempChar[this->length() + i] = rhs.str[i]; }
+    stringSize = newStringSize;
+    delete[] str;
+    str = tempChar;
+    return *this;
+}
+
+String& String::operator=(String rhs) // Assignment operator overload
+{
+    swap(rhs);
     return *this;
 }
 
