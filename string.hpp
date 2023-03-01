@@ -1,15 +1,16 @@
-// File:        string.hpp
+//File:        string.hpp
+//       
+//Version:     1.1
+//Date:        Sprint 2023
+//Author:      Dr. J. Maletic
 //
-// Version:     1.1
-// Date:        Spring 2023
-// Author:      Dr. J. Maletic
-//
-// Description: Interface definition of String class for Project 2, milestone 1.
+//Description: Interface definition of String class for use with test oracle.
+//             For use with Project 2, milestone 2, 3, 4.
 //
 // To use the supplied test oracles you will need to use this interface and namings.
 // You must also have all of these methods and functions defined for your string class.
 //
-// You will either have use this interface or call your methods through this interface.
+// You can NOT add any attributes/members.  If you do the test oracles will not work.
 //
 // You need to implement all of the methods and funcitons declared here.
 //
@@ -18,46 +19,50 @@
 #define CS23001_STRING_INTERFACE_HPP
 
 #include <iostream>
-#include <cassert>
-#include <fstream>
 
-const int STRING_SIZE = 256; // The size of the String.
 
-// CLASS INV:   str[length()] == 0 &&
-//              0 <= length() <= capacity() &&
-//              capacity() == STRING_SIZE - 1
-class String {
+// CLASS INV: str[length()] == 0             &&
+//            length()      == capacity()    &&
+//            capacity()    == stringSize - 1
+class String
+{
 public:
-    String(); // done   // Empty string
-    String(char); // done   // Stirng('x')
-    String(const char[]); // done   // String("abcd")
-//
-    int capacity() const; // done?   // Max chars that can be stored
-    int length() const; // done   // Number of char in string
-    char &operator[](int); // done   // Accessor/Modifier
-    char operator[](int) const; // done   // Accessor
-    void debugPrint(std::ostream &out) const; // done   // for debugging
-    String &operator+=(const String &); // done   // Concatenation
-    bool operator==(const String &) const; // done
-    bool operator<(const String &) const; // done
-    String substr(int, int) const; // done   // Sub from staring to ending positions
-    int findch(int, char) const; // done   // Location of charater starting at a position
-    int findstr(int, const String &) const; // done // Location of string starting at a position
-//
-    friend std::istream &operator>>(std::istream &, String &); // done
-    friend std::ostream &operator<<(std::ostream &, const String &); // done
+    String();                  // Empty string
+    String(char);              // String('x')
+    String(const char[]);      // String("abc")
+    String(const String &);    // Copy Constructor
+    ~String();                 // Destructor
+    void swap(String &);       // Constant time swap
+    String &operator=(String); // Assignment Copy
+
+    int capacity() const;       // Max chars that can be stored
+    int length() const;         // Actual number of chars in string
+    char &operator[](int);      // Accessor/Modifier
+    char operator[](int) const; // Accessor
+
+    String &operator+=(const String &);
+    bool operator==(const String &) const;
+    bool operator<(const String &) const;
+    String substr(int, int) const;          // sub from staring to ending position
+    int findch(int, char) const;            // Location of charater starting at position
+    int findstr(int, const String &) const; // Location of string starting at a position
+
+    friend std::ostream &operator<<(std::ostream &, const String &);
+    friend std::istream &operator>>(std::istream &, String &);
+
 private:
-    char str[STRING_SIZE];
+    char *str;      // Pointer to char[]
+    int stringSize; // Size includes NULL terminator
 };
 
-String operator+(String, const String &); // done
-bool operator==(const char[], const String &); // done
-bool operator==(char, const String &); // done
-bool operator<(const char[], const String &); // done
-bool operator<(char, const String &); // done
-bool operator<=(const String &, const String &); // done
-bool operator!=(const String &, const String &); // done
-bool operator>=(const String &, const String &); // done
-bool operator>(const String &, const String &); // done
+String operator+(String, const String &);
+bool operator==(const char[], const String &);
+bool operator==(char, const String &);
+bool operator<(const char[], const String &);
+bool operator<(char, const String &);
+bool operator<=(const String &, const String &);
+bool operator!=(const String &, const String &);
+bool operator>=(const String &, const String &);
+bool operator>(const String &, const String &);
 
 #endif
