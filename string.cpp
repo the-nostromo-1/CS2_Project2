@@ -1,7 +1,7 @@
 //
-// string.cpp
+// string.cpp V2
 // David J Tinley
-// 02/20/2023
+// 02/28/2023
 //
 
 #include "string.hpp"
@@ -9,7 +9,7 @@
 //
 // Class Constructors
 //
-String::String() // default constructor for empty string
+String::String() // Default Constructor
 {
     stringSize = 1;
     str = new char[stringSize];
@@ -17,7 +17,7 @@ String::String() // default constructor for empty string
 
 }
 
-String::String(char newChar) : String() // string ('x')
+String::String(char newChar) : String() // Character Constructor
 {
     if (newChar != '\0')
     {
@@ -34,7 +34,7 @@ String::String(char newChar) : String() // string ('x')
     }
 }
 
-String::String(const char charArray[]) : String() // string ('abcd')
+String::String(const char charArray[]) : String() // Character Array Constructor
 {
     stringSize = 0;
     while (str[stringSize] != '\0') { ++stringSize; }
@@ -43,7 +43,7 @@ String::String(const char charArray[]) : String() // string ('abcd')
     str[stringSize] = '\0';
 }
 
-String::String(const String &rhs)
+String::String(const String &rhs) // Copy Constructor
 {
     stringSize = rhs.stringSize;
     str = new char[stringSize];
@@ -53,10 +53,15 @@ String::String(const String &rhs)
     }
 }
 
+String::~String() { delete str; }
+
 //
 // Class Methods
 //
-int String::capacity() const { return (STRING_SIZE - 1); } // max chars that can be stored
+int String::capacity() const // max chars that can be stored
+{
+    return (this->stringSize - 1);
+}
 
 int String::findch(int pos, char myChar) const // Location of character starting at a position
 {
@@ -88,25 +93,23 @@ int String::length() const // Number of char in string
     return length;
 }
 
-void String::debugPrint(std::ostream &out) const
-{
-    int length = 0;
-    while (str[length] != '\0') { ++length; }
-    for (int i = 0; i < length; ++i) { out << str[i] << " "; }
-    std::cout << std::endl;
-}
-
 String String::substr(int start, int finish) const // Sub from staring to ending positions
 {
     String newSubString;
     if (finish < start) { return newSubString; }
     if (finish >= length()) { finish = (length() - 1); }
+
+    newSubString.stringSize = (finish - start) + 1;
+    newSubString.str = new char[stringSize];
+
     int subTracker = 0;
     for (int i = start; i < finish; ++i)
     {
         newSubString[subTracker] = str[i];
         ++subTracker;
     }
+
+    newSubString.str[stringSize] = '\0';
     return newSubString;
 }
 
@@ -117,14 +120,12 @@ String String::substr(int start, int finish) const // Sub from staring to ending
 char &String::operator[](int i) // Accessor/Modifier
 {
     assert(i >= 0);
-    assert(i <= STRING_SIZE -1);
     return str[i];
 }
 
 char String::operator[](int i) const // Accessor
 {
     assert(i >= 0);
-    assert(i <= STRING_SIZE - 1);
     return str[i];
 }
 
@@ -205,13 +206,11 @@ String operator+(String lhs, const String &rhs)
     int rhsLength = rhs.length();
     for (int i = 0; i < lhsLength; ++i)
     {
-        if ((lhsLength + i) >= STRING_SIZE) { break; }
         newString[i] = lhs[i];
     }
     int newOffset = newString.length();
     for (int j = 0; j < rhsLength; ++j)
     {
-        if (newOffset >= STRING_SIZE) { break; }
         newString[newOffset + j] = rhs[j];
     }
     newString[newOffset + rhsLength] = '\0';
