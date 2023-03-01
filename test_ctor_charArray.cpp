@@ -13,7 +13,7 @@ int main()
         String a("a");
         // Verify
         assert(a == "a");
-        std::cout << a << "== a: Passed..." << std::endl;
+        std::cout << a << " == a: Passed..." << std::endl;
     }
 
     {
@@ -21,7 +21,7 @@ int main()
         String a("abcdefgh");
         // Verify
         assert(a == "abcdefgh");
-        std::cout << a << "== a b c d e f g h: Passed..." << std::endl;
+        std::cout << a << " == abcdefgh: Passed..." << std::endl;
     }
 
     {
@@ -29,7 +29,7 @@ int main()
         String a("abcdefghijklmnop");
         // Verify
         assert(a == "abcdefghijklmnop");
-        std::cout << a << "== a b c d e f g h i j k l m n o p: Passed..." << std::endl;
+        std::cout << a << " == abcdefghijklmnop: Passed..." << std::endl;
     }
 
     {
@@ -37,7 +37,7 @@ int main()
         String a("abc");
         // Verify
         assert(a != "abcdefgh");
-        std::cout << a << "!= a b c d e f g h: Passed..." << std::endl;
+        std::cout << a << " != abcdefgh: Passed..." << std::endl;
     }
 
     {
@@ -45,7 +45,7 @@ int main()
         String a("abcdefgh");
         // Verify
         assert(a != "abc");
-        std::cout << a << "!= a b c: Passed..." << std::endl;
+        std::cout << a << " != abc: Passed..." << std::endl;
     }
 
     {
@@ -53,7 +53,7 @@ int main()
         String a("ab");
         // Verify
         assert(a != "ba");
-        std::cout << a << "!= b a: Passed..." << std::endl;
+        std::cout << a << " != ba: Passed..." << std::endl;
     }
 
     {
@@ -61,7 +61,7 @@ int main()
         String a("abcdefghijklmnopqrstuvwxyz");
         // Verify
         assert(a == "abcdefghijklmnopqrstuvwxyz");
-        std::cout << a << "== a b c d e f g h i j k l m n o p q r s t u v w x y z: Passed..." << std::endl;
+        std::cout << a << " == abcdefghijklmnopqrstuvwxyz: Passed..." << std::endl;
     }
 
     {
@@ -69,9 +69,10 @@ int main()
         String a("abcd");
         // Verify
         assert(a != "dcba");
-        std::cout << a << "!= d c b a: Passed..." << std::endl;
+        std::cout << a << " != dcba: Passed..." << std::endl;
     }
 
     std::cout << "Done testing character array constructor." << std::endl;
+    std::cout << std::endl;
     return 0;
 }

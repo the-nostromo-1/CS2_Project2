@@ -27,5 +27,6 @@ int main()
     }
 
     std::cout << "Done testing default constructor." << std::endl;
+    std::cout << std::endl;
     return 0;
 }

@@ -37,7 +37,11 @@ int main()
 		exit(1);
 	}
 	String aString;
-	while (in >> aString) { std::cout << aString << std::endl; }
+	String bString;
+	while (in >> aString >> bString)
+	{
+		std::cout << aString << " " << bString << std::endl;
+	}
 	in.close();
 	return 0;
 }
