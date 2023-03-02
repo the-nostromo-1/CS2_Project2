@@ -3,10 +3,9 @@
 //
 //
 
-#include "string.hpp"
-#include "string.cpp"
 
-int main()
+
+/*int main()
 {
     String myString("baaacd");
 
@@ -61,3 +60,4 @@ int main()
 
     return 0;
 }
+*/

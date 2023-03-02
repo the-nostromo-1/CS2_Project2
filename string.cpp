@@ -41,7 +41,7 @@ String::String(const String &rhs) // Copy Constructor
     for (int i = 0; i < stringSize; ++i) { str[i] = rhs.str[i]; }
 }
 
-String::~String() { delete str; }
+String::~String() { delete str; } // Destructor
 
 //
 // Class Methods
@@ -223,11 +223,14 @@ String &String::operator+=(const String &rhs)
 {
     int newStringSize = stringSize + rhs.stringSize - 1;
     char *tempChar = new char[newStringSize];
+
     for (int i = 0; i < this->length(); ++i) { tempChar[i] = str[i]; }
     for (int i = 0; i < rhs.length(); ++i) { tempChar[this->length() + i] = rhs.str[i]; }
+
     stringSize = newStringSize;
     delete[] str;
     str = tempChar;
+
     return *this;
 }
 

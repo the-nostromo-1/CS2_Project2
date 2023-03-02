@@ -34,7 +34,7 @@ OPTIONS = -g -Werror -W -Wunused -Wuninitialized -Wshadow -std=c++17
 #  These are ones you should build:
 MYCTOR = test_default_ctor test_ctor_charArray test_ctor_char
 MYREL  = test_equal test_lessThan
-MYOPS  = test_concat test_subscript #test_len_cap test_input test_find_char test_find_string test_substring
+MYOPS  = test_concat test_subscript test_len_cap #test_input test_find_char test_find_string test_substring
 MYM2   = test_ctor_copy test_swap_assign
 
 
@@ -42,10 +42,10 @@ MYM2   = test_ctor_copy test_swap_assign
 # Names of testoracle files
 # Include or exclude ones you don't want to compile
 # For Milestone 3: testoracle_split
-CTOR = testoracle_ctor_default testoracle_ctor_char  testoracle_ctor_charArray
-REL  = testoracle_equal testoracle_lessThan
-COPY = testoracle_ctor_copy testoracle_assign testoracle_swap_assign
-OPS  = testoracle_concat testoracle_subscript testoracle_len_cap testoracle_input testoracle_find_char testoracle_find_string testoracle_substring
+CTOR = testoracle_ctor_default #testoracle_ctor_char  testoracle_ctor_charArray
+REL  = #testoracle_equal testoracle_lessThan
+COPY = #testoracle_ctor_copy testoracle_assign testoracle_swap_assign
+OPS  = #testoracle_concat testoracle_subscript testoracle_len_cap testoracle_input testoracle_find_char testoracle_find_string testoracle_substring
 
 
 ###############################################################
@@ -81,7 +81,7 @@ tests: $(MYCTOR) $(MYREL) $(MYOPS)
 	./test_lessThan
 	./test_concat
 	./test_subscript
-#	./test_len_cap
+	./test_len_cap
 #	./test_input
 #	./test_find_char
 #	./test_find_string
@@ -109,21 +109,21 @@ test_%.o: string.hpp test_%.cpp
 #
 oracle: $(CTOR) $(REL) $(COPY) $(OPS)
 	./testoracle_ctor_default
-	./testoracle_equal
-	./testoracle_ctor_char
-	./testoracle_ctor_charArray
-	./testoracle_ctor_copy
-	./testoracle_assign
-	./testoracle_swap_assign
-	./testoracle_lessThan
-	./testoracle_concat
-	./testoracle_subscript
-	./testoracle_len_cap
-	./testoracle_input
-	./testoracle_substring
-	./testoracle_find_char
-	./testoracle_find_string
-	#	./testoracle_split
+#	./testoracle_equal
+#	./testoracle_ctor_char
+#	./testoracle_ctor_charArray
+#	./testoracle_ctor_copy
+#	./testoracle_assign
+#	./testoracle_swap_assign
+#	./testoracle_lessThan
+#	./testoracle_concat
+#	./testoracle_subscript
+#	./testoracle_len_cap
+#	./testoracle_input
+#	./testoracle_substring
+#	./testoracle_find_char
+#	./testoracle_find_string
+#	./testoracle_split
 
 ###############################################################
 # Run test oracle with valgrind for Milestone 2 and 3

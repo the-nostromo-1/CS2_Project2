@@ -71,6 +71,28 @@ int main()
         std::cout << "Subscript: Passed..." << std::endl;
     }
 
+    {
+        // Test
+        String a("abcdefghijklmnopqrstuvwxyz");
+        a[6] = 'z';
+
+        // Verify
+        assert(a[6] == 'z');
+        assert(a[11] == 'l');
+        std::cout << "Subscript: Passed..." << std::endl;
+    }
+
+    {
+        // Test
+        String a("abcdefghijklmnopqrstuvwxyz");
+        a[6] = ' ';
+
+        // Verify
+        assert(a[6] == ' ');
+        assert(a[11] == 'l');
+        std::cout << "Subscript: Passed..." << std::endl;
+    }
+
     std::cout << "Done testing subscript operator." << std::endl;
     std::cout << std::endl;
     return 0;
