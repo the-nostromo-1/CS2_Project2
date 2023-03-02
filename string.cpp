@@ -46,9 +46,6 @@ String::~String() { delete str; }
 //
 // Class Methods
 //
-int String::getStringSize() const{
-    return stringSize;
-}
 
 int String::capacity() const // max chars that can be stored
 {
@@ -97,10 +94,11 @@ String String::substr(int start, int finish) const // Sub from staring to ending
     int subTracker = 0;
     for (int i = start; i <= finish; ++i)
     {
-        newSubString[i] = str[i];
+        newSubString[subTracker] = str[i];
+        ++subTracker;
     }
 
-    newSubString.str[newSubString.stringSize - 1] = '\0';
+    newSubString.str[newSubString.stringSize] = '\0';
     return newSubString;
 }
 
@@ -114,7 +112,7 @@ void String::swap(String &rhs)
     char *tempString;
     tempString = rhs.str;
     rhs.str = str;
-    str = tempString; 
+    str = tempString;
 }
 
 //

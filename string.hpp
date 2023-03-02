@@ -40,7 +40,6 @@ class String
         int length() const;             // Actual number of chars in string
         char &operator[](int);          // Accessor/Modifier
         char operator[](int) const;     // Accessor
-        int getStringSize() const;
 
         String &operator+=(const String &);
         bool operator==(const String &) const;

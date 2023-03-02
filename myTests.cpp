@@ -9,13 +9,11 @@
 int main()
 {
     String myString("baaacd");
-    
-    std::cout << "String one size: " << myString.getStringSize() << std::endl;
+
     //String newString("abcdef");
 
     String anotherString("mm");
 
-    std::cout << "String two size: " << anotherString.getStringSize() << std::endl;
     //String moreString("abcd");
 
     //String cpyString = moreString; // testing copy constructor
@@ -26,12 +24,14 @@ int main()
     {
         std::cout << anotherString[i] << " ";
     }
-
-    std::cout << myString.substr(1, 3) << std::endl;
     std::cout << std::endl;
-    std::cout << "Capacity: " << anotherString.capacity() << std::endl;
-    std::cout << "Length: " << anotherString.length() << std::endl;
-    std::cout << "String Size: " << anotherString.getStringSize() << std::endl;
+
+    String subStr = myString.substr(1, 3);
+
+    for (int i = 0; i < subStr.length(); ++i)
+    {
+        std::cout << subStr[i] << " ";
+    }
     std::cout << std::endl;
 
     // bool a = anotherString == myString; // testing equality operator
