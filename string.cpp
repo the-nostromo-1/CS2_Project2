@@ -49,7 +49,7 @@ String::~String() { delete str; } // Destructor
 
 int String::capacity() const // max chars that can be stored
 {
-    return (stringSize - 1);
+    return (this->length());
 }
 
 int String::findch(int pos, char myChar) const // Location of character starting at a position
@@ -121,13 +121,13 @@ void String::swap(String &rhs)
 
 char &String::operator[](int i) // Accessor/Modifier
 {
-    assert(i >= 0);
+    //assert(i >= 0);
     return str[i];
 }
 
 char String::operator[](int i) const // Accessor
 {
-    assert(i >= 0);
+    //assert(i >= 0);
     return str[i];
 }
 
@@ -221,7 +221,7 @@ String operator+(String lhs, const String &rhs)
 
 String &String::operator+=(const String &rhs)
 {
-    int newStringSize = stringSize + rhs.stringSize - 1;
+    int newStringSize = stringSize + rhs.stringSize;
     char *tempChar = new char[newStringSize];
 
     for (int i = 0; i < this->length(); ++i) { tempChar[i] = str[i]; }

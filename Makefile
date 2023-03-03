@@ -42,10 +42,10 @@ MYM2   = test_ctor_copy test_swap_assign
 # Names of testoracle files
 # Include or exclude ones you don't want to compile
 # For Milestone 3: testoracle_split
-CTOR = testoracle_ctor_default #testoracle_ctor_char  testoracle_ctor_charArray
-REL  = #testoracle_equal testoracle_lessThan
-COPY = #testoracle_ctor_copy testoracle_assign testoracle_swap_assign
-OPS  = #testoracle_concat testoracle_subscript testoracle_len_cap testoracle_input testoracle_find_char testoracle_find_string testoracle_substring
+CTOR = testoracle_ctor_default testoracle_ctor_char  testoracle_ctor_charArray
+REL  = testoracle_equal testoracle_lessThan
+COPY = testoracle_ctor_copy testoracle_assign testoracle_swap_assign
+OPS  = testoracle_concat testoracle_subscript testoracle_len_cap testoracle_input testoracle_find_char testoracle_find_string testoracle_substring
 
 
 ###############################################################
@@ -109,20 +109,20 @@ test_%.o: string.hpp test_%.cpp
 #
 oracle: $(CTOR) $(REL) $(COPY) $(OPS)
 	./testoracle_ctor_default
-#	./testoracle_equal
-#	./testoracle_ctor_char
-#	./testoracle_ctor_charArray
-#	./testoracle_ctor_copy
-#	./testoracle_assign
-#	./testoracle_swap_assign
-#	./testoracle_lessThan
+	./testoracle_equal
+	./testoracle_ctor_char
+	./testoracle_ctor_charArray
+	./testoracle_ctor_copy
+	./testoracle_assign
+	./testoracle_swap_assign
+	./testoracle_lessThan
 #	./testoracle_concat
-#	./testoracle_subscript
-#	./testoracle_len_cap
-#	./testoracle_input
-#	./testoracle_substring
-#	./testoracle_find_char
-#	./testoracle_find_string
+	./testoracle_subscript
+	./testoracle_len_cap
+	./testoracle_input
+	./testoracle_substring
+	./testoracle_find_char
+	./testoracle_find_string
 #	./testoracle_split
 
 ###############################################################
@@ -145,7 +145,7 @@ oracle-mem: $(CTOR) $(REL) $(COPY) $(OPS)
 	valgrind ./testoracle_substring
 	valgrind ./testoracle_find_char
 	valgrind ./testoracle_find_string
-	#	valgrind ./testoracle_split
+#	valgrind ./testoracle_split
 
 
 ###############################################################

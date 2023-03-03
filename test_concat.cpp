@@ -75,6 +75,21 @@ int main()
         std::cout << "String concatenation: Passed..." << std::endl;
     }
 
+    {
+        // Test
+        String a("abcdefghijklmnopqrstuvwxyz");
+        String b("abcdefghijklmnopqrstuvwxyz");
+        a += b;
+        String c("abcdefghijklmnopqrstuvwxyz");
+        c += a;
+        a += c;
+
+        // Verify
+        assert(c == "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz");
+        assert(a == "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz");
+        std::cout << "String concatenation: Passed..." << std::endl;
+    }
+
     std::cout << "Done testing String concatenation." << std::endl;
     std::cout << std::endl;
     return 0;

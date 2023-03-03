@@ -20,6 +20,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <cassert>
 
 // CLASS INV: str[length()] == 0             &&
 //            length()      == capacity()    &&
