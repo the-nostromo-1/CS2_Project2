@@ -14,8 +14,7 @@ int main()
         // Verify
         assert(a.capacity() == 4);
         assert(a.length() == 4);
-        std::cout << "Capacity: Passed..." << std::endl;
-        std::cout << "Length: Passed..." << std::endl;
+        std::cout << "Capacity and Length: Passed..." << std::endl;
     }
 
     {
@@ -28,8 +27,21 @@ int main()
         assert(a.length() == 1);
         assert(b.capacity() == 16);
         assert(b.length() == 16);
-        std::cout << "Capacity: Passed..." << std::endl;
-        std::cout << "Length: Passed..." << std::endl;
+        std::cout << "Capacity and Length: Passed..." << std::endl;
+    }
+
+    {
+        // Test
+        String a("abcdefghijklmnop");
+        String b("abcdefghijklmnop");
+
+        // Verify
+        assert(a.capacity() == 16);
+        assert(a.length() == 16);
+        assert(b.capacity() == 16);
+        assert(b.length() == 16);
+        std::cout << "Capacity and Length: Passed..." << std::endl;
+
     }
 
     std::cout << "Done testing length and capacity functions." << std::endl;

@@ -116,7 +116,7 @@ oracle: $(CTOR) $(REL) $(COPY) $(OPS)
 	./testoracle_assign
 	./testoracle_swap_assign
 	./testoracle_lessThan
-#	./testoracle_concat
+	./testoracle_concat
 	./testoracle_subscript
 	./testoracle_len_cap
 	./testoracle_input
