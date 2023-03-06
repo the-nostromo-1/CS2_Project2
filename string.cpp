@@ -202,21 +202,8 @@ bool String::operator<(const String &rhs) const
 }
 
 String operator+(String lhs, const String &rhs)
-{
-    String newString;
-    int lhsLength = lhs.length();
-    int rhsLength = rhs.length();
-    for (int i = 0; i < lhsLength; ++i)
-    {
-        newString[i] = lhs[i];
-    }
-    int newOffset = newString.length();
-    for (int j = 0; j < rhsLength; ++j)
-    {
-        newString[newOffset + j] = rhs[j];
-    }
-    newString[newOffset + rhsLength] = '\0';
-    return newString;
+{ 
+    return lhs += rhs;
 }
 
 String &String::operator+=(const String &rhs)
