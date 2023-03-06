@@ -47,10 +47,7 @@ String::~String() { delete str; } // Destructor
 // Class Methods
 //
 
-int String::capacity() const // max chars that can be stored
-{
-    return (this->length());
-}
+int String::capacity() const { return (this->length()); } // max chars that can be stored
 
 int String::findch(int pos, char myChar) const // Location of character starting at a position
 {
@@ -67,10 +64,7 @@ int String::findstr(int start, const String &rhs) const
 {
     for (int i = start; i <= length(); ++i)
     {
-        if (substr(i, (i + rhs.length() - 1)) == rhs)
-        {
-            return i;
-        }
+        if (substr(i, (i + rhs.length() - 1)) == rhs) { return i; }
     }
     return -1;
 }
@@ -121,13 +115,13 @@ void String::swap(String &rhs)
 
 char &String::operator[](int i) // Accessor/Modifier
 {
-    //assert(i >= 0);
+    assert(i >= 0);
     return str[i];
 }
 
 char String::operator[](int i) const // Accessor
 {
-    //assert(i >= 0);
+    assert(i >= 0);
     return str[i];
 }
 
@@ -201,23 +195,21 @@ bool String::operator<(const String &rhs) const
     return str[i] < rhs.str[i];
 }
 
-String operator+(String lhs, const String &rhs)
-{ 
-    return lhs += rhs;
-}
+String operator+(String lhs, const String &rhs) { return lhs += rhs; }
 
 String &String::operator+=(const String &rhs)
 {
-    int newStringSize = stringSize + rhs.stringSize;
+    int newStringSize = this->length() + rhs.length() + 1;
     char *tempChar = new char[newStringSize];
 
     for (int i = 0; i < this->length(); ++i) { tempChar[i] = str[i]; }
     for (int i = 0; i < rhs.length(); ++i) { tempChar[this->length() + i] = rhs.str[i]; }
 
+    tempChar[newStringSize - 1] = '\0';
     stringSize = newStringSize;
     delete[] str;
     str = tempChar;
-
+    
     return *this;
 }
 

@@ -14,7 +14,7 @@ int main()
         
         // Verify
         assert(a == b);
-        std::cout << "a = b" << std::endl;
+        std::cout << "Equal operator: Passed..." << std::endl;
     }
 
     {
@@ -24,7 +24,7 @@ int main()
 
         // Verify
         assert(a == b);
-        std::cout << a << " = " << b << std::endl;
+        std::cout << "Equal operator: Passed..." << std::endl;
     }
 
     {
@@ -34,7 +34,7 @@ int main()
 
         // Verify
         assert(a == b);
-        std::cout << a << " = " << b << std::endl;
+        std::cout << "Equal operator: Passed..." << std::endl;
     }
 
     {
@@ -44,7 +44,7 @@ int main()
 
         // Verify
         assert(a == b);
-        std::cout << a << " = " << b << std::endl;
+        std::cout << "Equal operator: Passed..." << std::endl;
     }
 
     {
@@ -54,7 +54,7 @@ int main()
 
         // Verify
         assert(a != b);
-        std::cout << a << " != " << b << std::endl;
+        std::cout << "Equal operator: Passed..." << std::endl;
     }
 
     {
@@ -64,7 +64,7 @@ int main()
 
         // Verify
         assert(a != b);
-        std::cout << a << " != " << b << std::endl;
+        std::cout << "Equal operator: Passed..." << std::endl;
     }
 
     {
@@ -74,7 +74,7 @@ int main()
 
         // Verify
         assert(a != b);
-        std::cout << a << " != " << b << std::endl;
+        std::cout << "Equal operator: Passed..." << std::endl;
     }
 
     std::cout << "Done testing equality." << std::endl;

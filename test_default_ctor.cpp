@@ -14,7 +14,7 @@ int main()
 
         // Verify
         assert(a == "\0");
-        std::cout << "a == '0': Passed..." << std::endl;
+        std::cout << "Default constructor: Passed..." << std::endl;
     }
 
     {
@@ -23,7 +23,7 @@ int main()
 
         // Verify
         assert(a != "1");
-        std::cout << "a != 1: Passed..." << std::endl;
+        std::cout << "Default constructor: Passed..." << std::endl;
     }
 
     std::cout << "Done testing default constructor." << std::endl;

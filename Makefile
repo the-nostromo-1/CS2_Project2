@@ -34,7 +34,7 @@ OPTIONS = -g -Wall -Werror -W -Wunused -Wuninitialized -Wshadow -std=c++17
 #  These are ones you should build:
 MYCTOR = test_default_ctor test_ctor_charArray test_ctor_char
 MYREL  = test_equal test_lessThan
-MYOPS  = test_concat test_subscript test_len_cap #test_input test_find_char test_find_string test_substring
+MYOPS  = test_concat test_subscript test_len_cap test_input #test_find_char test_find_string test_substring
 MYM2   = test_ctor_copy test_swap_assign
 
 
@@ -82,7 +82,7 @@ tests: $(MYCTOR) $(MYREL) $(MYOPS)
 	./test_concat
 	./test_subscript
 	./test_len_cap
-#	./test_input
+	./test_input
 #	./test_find_char
 #	./test_find_string
 #	./test_substring
@@ -116,7 +116,7 @@ oracle: $(CTOR) $(REL) $(COPY) $(OPS)
 	./testoracle_assign
 	./testoracle_swap_assign
 	./testoracle_lessThan
-#	./testoracle_concat
+	./testoracle_concat
 	./testoracle_subscript
 	./testoracle_len_cap
 	./testoracle_input
@@ -131,20 +131,20 @@ oracle: $(CTOR) $(REL) $(COPY) $(OPS)
 #
 oracle-mem: $(CTOR) $(REL) $(COPY) $(OPS)
 	valgrind ./testoracle_ctor_default
-	#valgrind ./testoracle_equal
-	#valgrind ./testoracle_ctor_char
-	#valgrind ./testoracle_ctor_charArray
-	#valgrind ./testoracle_ctor_copy
-	#valgrind ./testoracle_assign
-	#valgrind ./testoracle_swap_assign
-	#valgrind ./testoracle_lessThan
-	#valgrind ./testoracle_concat
-	#valgrind ./testoracle_subscript
-	#valgrind ./testoracle_len_cap
-	#valgrind ./testoracle_input
-	#valgrind ./testoracle_substring
-	#valgrind ./testoracle_find_char
-	#valgrind ./testoracle_find_string
+#	valgrind ./testoracle_equal
+#	valgrind ./testoracle_ctor_char
+#	valgrind ./testoracle_ctor_charArray
+#	valgrind ./testoracle_ctor_copy
+#	valgrind ./testoracle_assign
+#	valgrind ./testoracle_swap_assign
+#	valgrind ./testoracle_lessThan
+#	valgrind ./testoracle_concat
+#	valgrind ./testoracle_subscript
+#	valgrind ./testoracle_len_cap
+#	valgrind ./testoracle_input
+#	valgrind ./testoracle_substring
+#	valgrind ./testoracle_find_char
+#	valgrind ./testoracle_find_string
 #	valgrind ./testoracle_split
 
 

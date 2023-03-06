@@ -13,7 +13,7 @@ int main()
         String a("a");
         // Verify
         assert(a == "a");
-        std::cout << a << " == a: Passed..." << std::endl;
+        std::cout << "Character array: Passed..." << std::endl;
     }
 
     {
@@ -21,7 +21,7 @@ int main()
         String a("abcdefgh");
         // Verify
         assert(a == "abcdefgh");
-        std::cout << a << " == abcdefgh: Passed..." << std::endl;
+        std::cout << "Character array: Passed..." << std::endl;
     }
 
     {
@@ -29,7 +29,7 @@ int main()
         String a("abcdefghijklmnop");
         // Verify
         assert(a == "abcdefghijklmnop");
-        std::cout << a << " == abcdefghijklmnop: Passed..." << std::endl;
+        std::cout << "Character array: Passed..." << std::endl;
     }
 
     {
@@ -37,7 +37,7 @@ int main()
         String a("abc");
         // Verify
         assert(a != "abcdefgh");
-        std::cout << a << " != abcdefgh: Passed..." << std::endl;
+        std::cout << "Character array: Passed..." << std::endl;
     }
 
     {
@@ -45,7 +45,7 @@ int main()
         String a("abcdefgh");
         // Verify
         assert(a != "abc");
-        std::cout << a << " != abc: Passed..." << std::endl;
+        std::cout << "Character array: Passed..." << std::endl;
     }
 
     {
@@ -53,7 +53,7 @@ int main()
         String a("ab");
         // Verify
         assert(a != "ba");
-        std::cout << a << " != ba: Passed..." << std::endl;
+        std::cout << "Character array: Passed..." << std::endl;
     }
 
     {
@@ -61,7 +61,7 @@ int main()
         String a("abcdefghijklmnopqrstuvwxyz");
         // Verify
         assert(a == "abcdefghijklmnopqrstuvwxyz");
-        std::cout << a << " == abcdefghijklmnopqrstuvwxyz: Passed..." << std::endl;
+        std::cout << "Character array: Passed..." << std::endl;
     }
 
     {
@@ -69,7 +69,7 @@ int main()
         String a("abcd");
         // Verify
         assert(a != "dcba");
-        std::cout << a << " != dcba: Passed..." << std::endl;
+        std::cout << "Character array: Passed..." << std::endl;
     }
 
     std::cout << "Done testing character array constructor." << std::endl;

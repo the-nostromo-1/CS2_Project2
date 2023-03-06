@@ -13,7 +13,7 @@ int main()
         String a("a");
         // Verify
         assert(a == "a");
-        std::cout << a << " == a: Passed..." << std::endl;
+        std::cout << "Character constructor: Passed..." << std::endl;
     }
 
     {
@@ -21,7 +21,7 @@ int main()
         String a("a");
         // Verify
         assert(a != "b");
-        std::cout << a << " != b: Passed..." << std::endl;
+        std::cout << "Character constructor: Passed..." << std::endl;
     }
 
     {
@@ -29,7 +29,7 @@ int main()
         String a("z");
         // Verify
         assert(a == "z");
-        std::cout << a << " == z: Passed..." << std::endl;
+        std::cout << "Character constructor: Passed..." << std::endl;
     }
 
     {
@@ -37,7 +37,7 @@ int main()
         String a("z");
         // Verify
         assert(a != "a");
-        std::cout << a << " != a: Passed..." << std::endl;
+        std::cout << "Character constructor: Passed..." << std::endl;
     }
 
     std::cout << "Done testing character constructor." << std::endl;

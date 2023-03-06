@@ -90,6 +90,18 @@ int main()
         std::cout << "String concatenation: Passed..." << std::endl;
     }
 
+    {
+        // Test
+        String a("a");
+        String b("bc");
+        a += b;
+        String result = a;
+
+        // Verify
+        assert(result == "abc");
+        std::cout << "String concatenation: Passed..." << std::endl;
+    }
+
     std::cout << "Done testing String concatenation." << std::endl;
     std::cout << std::endl;
     return 0;

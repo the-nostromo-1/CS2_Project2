@@ -14,7 +14,7 @@ int main()
 
         // Verify
         assert(a < b);
-        std::cout << "String a < String b: Passed..." << std::endl;
+        std::cout << "Less than: Passed..." << std::endl;
     }
 
     {
@@ -24,7 +24,7 @@ int main()
 
         // Verify
         assert(a < b);
-        std::cout << a << " < " << b << ": Passed..." << std::endl;
+        std::cout << "Less than: Passed..." << std::endl;
     }
 
     {
@@ -34,7 +34,7 @@ int main()
 
         // Verify
         assert(a < b);
-        std::cout << a << " < " << b << ": Passed..." << std::endl;
+        std::cout << "Less than: Passed..." << std::endl;
     }
 
     {
@@ -44,7 +44,7 @@ int main()
 
         // Verify
         assert(a < b);
-        std::cout << a << " < " << b << ": Passed..." << std::endl;
+        std::cout << "Less than: Passed..." << std::endl;
     }
 
     {
@@ -54,7 +54,7 @@ int main()
 
         // Verify
         assert(b < a);
-        std::cout << a << " < " << b << ": Passed..." << std::endl;
+        std::cout << "Less than: Passed..." << std::endl;
     }
 
     {
@@ -64,7 +64,7 @@ int main()
 
         // Verify
         assert(b < a);
-        std::cout << b << " < " << a << ": Passed..." << std::endl;
+        std::cout << "Less than: Passed..." << std::endl;
     }
     
     std::cout << "Done testing less than operator." << std::endl;
