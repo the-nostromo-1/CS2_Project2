@@ -4,11 +4,12 @@
 // 02/28/2023
 //
 
-#include "string.hpp"
+#include "string-m3.hpp"
 
-//
+//////////////////////
 // Class Constructors
-//
+//////////////////////
+
 String::String() // Default Constructor
 {
     str = new char[1];
@@ -43,9 +44,9 @@ String::String(const String &rhs) // Copy Constructor
 
 String::~String() { delete str; } // Destructor
 
-//
+/////////////////
 // Class Methods
-//
+/////////////////
 
 int String::capacity() const { return (this->length()); } // max chars that can be stored
 
@@ -111,25 +112,28 @@ void String::swap(String &rhs)
 
 std::vector<String> String::split(char splitChar) const
 {
-    String newString;
-    
-    
+    std::vector<String> result; // creating String type vector
+    String newString; // creating new string
+
+    int end = this->findch(0, splitChar);
     return;
 }
 
-    //
+    //////////////////////
     // Operator Overloads
-    //
+    //////////////////////
 
-    char &String::operator[](int i) // Accessor/Modifier
+char &String::operator[](int i) // Accessor/Modifier
 {
     assert(i >= 0);
+    assert(i <= stringSize);
     return str[i];
 }
 
 char String::operator[](int i) const // Accessor
 {
     assert(i >= 0);
+    assert(i <= stringSize);
     return str[i];
 }
 

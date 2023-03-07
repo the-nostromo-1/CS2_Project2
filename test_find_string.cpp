@@ -38,6 +38,16 @@ int main()
         std::cout << "Find string: Passed..." << std::endl;
     }
 
+    {
+        // Test
+        String a("abcdefghijklmnopqrstuvwxyz");
+        String b("qrstuv");
+
+        // Verify
+        assert(a.findstr(0, b) == 16);
+        std::cout << "Find string: Passed..." << std::endl;
+    }
+
     std::cout << "Done testing find string." << std::endl;
     std::cout << std::endl;
     return 0;
