@@ -40,6 +40,22 @@ int main()
         std::cout << "Character constructor: Passed..." << std::endl;
     }
 
+    {
+        // Test
+        String a("1");
+        // Verify
+        assert(a == "1");
+        std::cout << "Character constructor: Passed..." << std::endl;
+    }
+
+    {
+        // Test
+        String a("z");
+        // Verify
+        assert(a != "1");
+        std::cout << "Character constructor: Passed..." << std::endl;
+    }
+
     std::cout << "Done testing character constructor." << std::endl;
     std::cout << std::endl;
     return 0;
