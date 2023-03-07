@@ -75,8 +75,8 @@ Milestone 2 (25pts)
     The testoracles only work on wasp/hornet. They are compiled on that platform only.
 Milestone 3 (25 pts)
     Implementation:
-    You will use std::vector<> (need to include <vector>) for storing the results of parsing the input data.
-    For your String class, implement a method std::vector<String> String::split(char) const;
+    You will use std::vector<> (need to include < vector >) for storing the results of parsing the input data.
+    For your String class, implement a method std::vector< String > String::split(char) const;
     This method will return a vector of String split up based on a supplied character. For example:
     s = "abc ef gh", then s.split(' ') returns a vector with three strings: { "abc", "ef", "gh" }
     s = "-a--b-", then s.split('-') returns a vector with five strings: { "", "a", "", "b", "" }, three of which are empty string.

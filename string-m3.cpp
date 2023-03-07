@@ -109,11 +109,19 @@ void String::swap(String &rhs)
     str = tempString;
 }
 
-//
-// Operator Overloads
-//
+std::vector<String> String::split(char splitChar) const
+{
+    String newString;
+    
+    
+    return;
+}
 
-char &String::operator[](int i) // Accessor/Modifier
+    //
+    // Operator Overloads
+    //
+
+    char &String::operator[](int i) // Accessor/Modifier
 {
     assert(i >= 0);
     return str[i];
@@ -195,9 +203,9 @@ bool String::operator<(const String &rhs) const
     return str[i] < rhs.str[i];
 }
 
-String operator+(String lhs, const String &rhs) { return lhs += rhs; } // Addition operator overload
+String operator+(String lhs, const String &rhs) { return lhs += rhs; }
 
-String &String::operator+=(const String &rhs) // Concatenation operator
+String &String::operator+=(const String &rhs)
 {
     int newStringSize = this->length() + rhs.length() + 1;
     char *tempChar = new char[newStringSize];
@@ -219,6 +227,12 @@ String& String::operator=(String rhs) // Assignment operator overload
     return *this;
 }
 
-std::ostream &operator<<(std::ostream &out, const String &rhs) { return out << rhs.str; } // Insertion operator overload
+std::ostream &operator<<(std::ostream &out, const String &rhs)
+{
+    return out << rhs.str;
+}
 
-std::istream &operator>>(std::istream &in, String &rhs) { return in >> rhs.str; } // Extraction operator overload
+std::istream &operator>>(std::istream &in, String &rhs)
+{
+    return in >> rhs.str;
+}

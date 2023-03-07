@@ -73,7 +73,7 @@ int main()
         in.open("test3.txt");
         if (!in)
         {
-            std::cerr << "File not found: test2.txt" << std::endl;
+            std::cerr << "File not found: test3.txt" << std::endl;
             exit(1);
         }
         String a;
@@ -86,6 +86,60 @@ int main()
             assert(b == "2.two");
             assert(c == "3.three");
             assert(d == "4.four");
+        }
+        in.close();
+        // Verify
+        std::cout << "Input operator: Passed..." << std::endl;
+    }
+
+    {
+        // Test
+        std::ifstream in;
+        in.open("test4.txt");
+        if (!in)
+        {
+            std::cerr << "File not found: test4.txt" << std::endl;
+            exit(1);
+        }
+        String a;
+        String b;
+        String c;
+        String d;
+        String e;
+        String f;
+        String g;
+        while (in >> a >> b >> c >> d >> e >> f >> g)
+        {
+            assert(a == "a");
+            assert(b == "b");
+            assert(c == "c");
+            assert(d == "d");
+            assert(e == "e");
+            assert(f == "f");
+            assert(g == "g");
+        }
+        in.close();
+        // Verify
+        std::cout << "Input operator: Passed..." << std::endl;
+    }
+
+    {
+        // Test
+        std::ifstream in;
+        in.open("test5.txt");
+        if (!in)
+        {
+            std::cerr << "File not found: test5.txt" << std::endl;
+            exit(1);
+        }
+        String aString;
+        String bString;
+        String cString;
+        while (in >> aString >> bString >> cString)
+        {
+            assert(aString == "aaaaaaaaaaaa");
+            assert(bString == "bString");
+            assert(cString == "cString");
         }
         in.close();
         // Verify
