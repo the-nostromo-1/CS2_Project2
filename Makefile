@@ -73,7 +73,7 @@ string.o: string.hpp string.cpp
 #
 # For Milestone 2 add $(MYM2) to the end of the line below
 #
-tests: $(MYCTOR) $(MYREL) $(MYOPS)
+tests: $(MYCTOR) $(MYREL) $(MYOPS) $(MYM2)
 	./test_default_ctor
 	./test_equal
 	./test_ctor_char
@@ -86,9 +86,8 @@ tests: $(MYCTOR) $(MYREL) $(MYOPS)
 	./test_find_char
 	./test_find_string
 	./test_substring
-#Milestone 2
 	./test_ctor_copy
-#	./test_swap_assign
+	./test_swap_assign
 
 
 
@@ -154,8 +153,6 @@ oracle-mem: $(CTOR) $(REL) $(COPY) $(OPS)
 testoracle_%: string.o testoracles/testoracle_%.o
 	$(CPP) $(OPTIONS) string.o testoracles/testoracle_$*.o -o testoracle_$*
 
-
-
 ###############################################################
 # Compile Project Milestone 4
 #
@@ -167,8 +164,6 @@ logentry.o: logentry.cpp logentry.hpp string.hpp
 
 logview: logview.o string.o logentry.o
 	$(CPP) $(OPTIONS) logview.o string.o logentry.o -o logview
-
-
 
 
 ###############################################################
@@ -212,7 +207,7 @@ testM1_%.o: string.hpp $(M1PATH)testM1_%.cpp
 #
 clean:
 	rm -f *.o
-	rm -f $(MYCTOR) $(MYREL) $(MYOPS)
+	rm -f $(MYCTOR) $(MYREL) $(MYOPS) $(MYM2)
 	rm -f $(M1CTOR) $(M1REL) $(M1OPS)
 	rm -f testM1_*
 	rm -f $(CTOR) $(REL) $(COPY) $(OPS)
