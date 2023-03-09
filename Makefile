@@ -35,7 +35,7 @@ OPTIONS = -g -Wall -Werror -W -Wunused -Wuninitialized -Wshadow -std=c++17
 MYCTOR = test_default_ctor test_ctor_charArray test_ctor_char
 MYREL  = test_equal test_lessThan
 MYOPS  = test_concat test_subscript test_len_cap test_input test_find_char test_find_string test_substring
-MYM2   = test_ctor_copy test_swap_assign
+MYM2   = test_ctor_copy test_swap_assign test_split
 
 
 ###############################################################
@@ -45,7 +45,7 @@ MYM2   = test_ctor_copy test_swap_assign
 CTOR = testoracle_ctor_default testoracle_ctor_char  testoracle_ctor_charArray
 REL  = testoracle_equal testoracle_lessThan
 COPY = testoracle_ctor_copy testoracle_assign testoracle_swap_assign
-OPS  = testoracle_concat testoracle_subscript testoracle_len_cap testoracle_input testoracle_find_char testoracle_find_string testoracle_substring
+OPS  = testoracle_concat testoracle_subscript testoracle_len_cap testoracle_input testoracle_find_char testoracle_find_string testoracle_substring testoracle_split
 
 
 ###############################################################
@@ -53,7 +53,6 @@ OPS  = testoracle_concat testoracle_subscript testoracle_len_cap testoracle_inpu
 # Rules
 ###############################################################
 ###############################################################
-
 
 ###############################################################
 # Compile string
@@ -88,7 +87,7 @@ tests: $(MYCTOR) $(MYREL) $(MYOPS) $(MYM2)
 	./test_substring
 	./test_ctor_copy
 	./test_swap_assign
-
+	./test_split
 
 
 ###############################################################
@@ -122,7 +121,7 @@ oracle: $(CTOR) $(REL) $(COPY) $(OPS)
 	./testoracle_substring
 	./testoracle_find_char
 	./testoracle_find_string
-#	./testoracle_split
+	./testoracle_split
 
 ###############################################################
 # Run test oracle with valgrind for Milestone 2 and 3
@@ -130,21 +129,21 @@ oracle: $(CTOR) $(REL) $(COPY) $(OPS)
 #
 oracle-mem: $(CTOR) $(REL) $(COPY) $(OPS)
 	valgrind ./testoracle_ctor_default
-#	valgrind ./testoracle_equal
-#	valgrind ./testoracle_ctor_char
-#	valgrind ./testoracle_ctor_charArray
-#	valgrind ./testoracle_ctor_copy
-#	valgrind ./testoracle_assign
-#	valgrind ./testoracle_swap_assign
-#	valgrind ./testoracle_lessThan
-#	valgrind ./testoracle_concat
-#	valgrind ./testoracle_subscript
-#	valgrind ./testoracle_len_cap
-#	valgrind ./testoracle_input
-#	valgrind ./testoracle_substring
-#	valgrind ./testoracle_find_char
-#	valgrind ./testoracle_find_string
-#	valgrind ./testoracle_split
+	#	valgrind ./testoracle_equal
+	#	valgrind ./testoracle_ctor_char
+	#	valgrind ./testoracle_ctor_charArray
+	#	valgrind ./testoracle_ctor_copy
+	#	valgrind ./testoracle_assign
+	#	valgrind ./testoracle_swap_assign
+	#	valgrind ./testoracle_lessThan
+	#	valgrind ./testoracle_concat
+	#	valgrind ./testoracle_subscript
+	#	valgrind ./testoracle_len_cap
+	#	valgrind ./testoracle_input
+	#	valgrind ./testoracle_substring
+	#	valgrind ./testoracle_find_char
+	#	valgrind ./testoracle_find_string
+	#	valgrind ./testoracle_split
 
 
 ###############################################################
@@ -212,5 +211,3 @@ clean:
 	rm -f testM1_*
 	rm -f $(CTOR) $(REL) $(COPY) $(OPS)
 	rm -f logview
-
-

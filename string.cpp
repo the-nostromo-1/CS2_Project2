@@ -6,17 +6,18 @@
 
 #include "string.hpp"
 
-//
+///////////////////////////////////////////////////////
 // Class Constructors
-//
-String::String() // Default Constructor
+///////////////////////////////////////////////////////
+
+String::String()                       // Default Constructor
 {
     str = new char[1];
     str[0] = '\0';
     stringSize = 1;
 }
 
-String::String(char newChar) // Character Constructor
+String::String(char newChar)           // Character Constructor
 {
     str = new char[2];
     str[0] = newChar;
@@ -34,22 +35,22 @@ String::String(const char charArray[]) // Character Array Constructor
     str[stringSize-1] = '\0';
 }
 
-String::String(const String &rhs) // Copy Constructor
+String::String(const String &rhs)      // Copy Constructor
 {
     stringSize = rhs.stringSize;
     str = new char[stringSize];
     for (int i = 0; i < stringSize; ++i) { str[i] = rhs.str[i]; }
 }
 
-String::~String() { delete str; } // Destructor
+String::~String() { delete[] str; }    // Destructor
 
-//
+///////////////////////////////////////////////////////
 // Class Methods
-//
+///////////////////////////////////////////////////////
 
 int String::capacity() const { return (this->length()); } // max chars that can be stored
 
-int String::findch(int pos, char myChar) const // Location of character starting at a position
+int String::findch(int pos, char myChar) const            // Location of character starting at a position
 {
     int length = 0;
     while (str[length] != '\0') { ++length; }
@@ -91,7 +92,6 @@ String String::substr(int start, int finish) const // Sub from staring to ending
         newSubString[subTracker] = str[i];
         ++subTracker;
     }
-
     newSubString.str[newSubString.stringSize] = '\0';
     return newSubString;
 }
@@ -109,19 +109,51 @@ void String::swap(String &rhs)
     str = tempString;
 }
 
-//
-// Operator Overloads
-//
+std::vector<String> String::split(char splitChar) const
+{
+    std::vector<String> result; // creating String type vector
+    int currentPos = 0;         // start
+    while (findch(currentPos + 1, splitChar) != - 1)
+    {
+        if (splitChar == ' ')
+        {
+            result.push_back(substr(currentPos, findch(currentPos, splitChar) - 1));
+            currentPos = (findch(currentPos, splitChar)) + 1;
+        }
+        else
+        {
+            result.push_back(substr(currentPos, findch(currentPos, splitChar) - 1));
+            currentPos = (findch(currentPos, splitChar)) + 1;
+            result.push_back("");
+        }
+    }
 
-char &String::operator[](int i) // Accessor/Modifier
+    result.push_back(substr(currentPos, this->length()));
+
+    /*while (findch(currentPos + 1, splitChar) != - 1)
+      {
+      result.push_back(substr(currentPos, findch(currentPos + 1, splitChar) - 1));
+      currentPos = (findch(currentPos + 1, splitChar)) + 1;
+      }
+      result.push_back(substr(currentPos, this->length()));*/
+    return result;
+}
+
+///////////////////////////////////////////////////////
+// Operator Overloads
+///////////////////////////////////////////////////////
+
+char &String::operator[](int i)      // Accessor/Modifier
 {
     assert(i >= 0);
+    assert(i <= stringSize);
     return str[i];
 }
 
 char String::operator[](int i) const // Accessor
 {
     assert(i >= 0);
+    assert(i <= stringSize);
     return str[i];
 }
 
@@ -195,9 +227,9 @@ bool String::operator<(const String &rhs) const
     return str[i] < rhs.str[i];
 }
 
-String operator+(String lhs, const String &rhs) { return lhs += rhs; } // Addition operator overload
+String operator+(String lhs, const String &rhs) { return lhs += rhs; }
 
-String &String::operator+=(const String &rhs) // Concatenation operator
+String &String::operator+=(const String &rhs) // Concatenation operator overload
 {
     int newStringSize = this->length() + rhs.length() + 1;
     char *tempChar = new char[newStringSize];
@@ -209,16 +241,16 @@ String &String::operator+=(const String &rhs) // Concatenation operator
     stringSize = newStringSize;
     delete[] str;
     str = tempChar;
-    
+
     return *this;
 }
 
-String& String::operator=(String rhs) // Assignment operator overload
+String& String::operator=(String rhs)         // Assignment operator overload
 {
     swap(rhs);
     return *this;
 }
 
-std::ostream &operator<<(std::ostream &out, const String &rhs) { return out << rhs.str; } // Insertion operator overload
+std::ostream &operator<<(std::ostream &out, const String &rhs) { return out << rhs.str; }
 
-std::istream &operator>>(std::istream &in, String &rhs) { return in >> rhs.str; } // Extraction operator overload
+std::istream &operator>>(std::istream &in, String &rhs) { return in >> rhs.str; }
