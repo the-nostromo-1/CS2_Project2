@@ -1,5 +1,3 @@
 .vscode/launch.json
 .vscode/tasks.json
-myTests.dSYM/Contents/Info.plist
-myTests.dSYM/Contents/Resources/DWARF/myTests
-myTests
+.svn/

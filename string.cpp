@@ -10,14 +10,14 @@
 // Class Constructors
 ///////////////////////////////////////////////////////
 
-String::String()                       // Default Constructor
+String::String() // Default Constructor
 {
     str = new char[1];
     str[0] = '\0';
     stringSize = 1;
 }
 
-String::String(char newChar)           // Character Constructor
+String::String(char newChar) // Character Constructor
 {
     str = new char[2];
     str[0] = newChar;
@@ -32,17 +32,17 @@ String::String(const char charArray[]) // Character Array Constructor
     ++stringSize;
     str = new char[stringSize];
     for (int i = 0; i < stringSize; ++i) { str[i] = charArray[i]; }
-    str[stringSize-1] = '\0';
+    str[stringSize - 1] = '\0';
 }
 
-String::String(const String &rhs)      // Copy Constructor
+String::String(const String &rhs) // Copy Constructor
 {
     stringSize = rhs.stringSize;
     str = new char[stringSize];
     for (int i = 0; i < stringSize; ++i) { str[i] = rhs.str[i]; }
 }
 
-String::~String() { delete[] str; }    // Destructor
+String::~String() { delete[] str; } // Destructor
 
 ///////////////////////////////////////////////////////
 // Class Methods
@@ -50,7 +50,7 @@ String::~String() { delete[] str; }    // Destructor
 
 int String::capacity() const { return (this->length()); } // max chars that can be stored
 
-int String::findch(int pos, char myChar) const            // Location of character starting at a position
+int String::findch(int pos, char myChar) const // Location of character starting at a position
 {
     int length = 0;
     while (str[length] != '\0') { ++length; }
@@ -77,7 +77,8 @@ int String::length() const // Number of char in string
     return length;
 }
 
-String String::substr(int start, int finish) const // Sub from staring to ending positions
+String String::substr(int start,
+        int finish) const // Sub from staring to ending positions
 {
     String newSubString;
     if (finish < start) { return newSubString; }
@@ -113,7 +114,7 @@ std::vector<String> String::split(char splitChar) const
 {
     std::vector<String> result; // creating String type vector
     int currentPos = 0;         // start
-    while (findch(currentPos + 1, splitChar) != - 1)
+    while (findch(currentPos + 1, splitChar) != -1)
     {
         if (splitChar == ' ')
         {
@@ -130,12 +131,13 @@ std::vector<String> String::split(char splitChar) const
 
     result.push_back(substr(currentPos, this->length()));
 
-    /*while (findch(currentPos + 1, splitChar) != - 1)
-      {
-      result.push_back(substr(currentPos, findch(currentPos + 1, splitChar) - 1));
-      currentPos = (findch(currentPos + 1, splitChar)) + 1;
-      }
-      result.push_back(substr(currentPos, this->length()));*/
+    // while (findch(currentPos + 1, splitChar) != - 1)
+    // {
+    //   result.push_back(substr(currentPos, findch(currentPos + 1, splitChar) -
+    //   1)); currentPos = (findch(currentPos + 1, splitChar)) + 1;
+    // }
+    // result.push_back(substr(currentPos, this->length()));
+
     return result;
 }
 
@@ -143,7 +145,7 @@ std::vector<String> String::split(char splitChar) const
 // Operator Overloads
 ///////////////////////////////////////////////////////
 
-char &String::operator[](int i)      // Accessor/Modifier
+char &String::operator[](int i) // Accessor/Modifier
 {
     assert(i >= 0);
     assert(i <= stringSize);
@@ -245,11 +247,7 @@ String &String::operator+=(const String &rhs) // Concatenation operator overload
     return *this;
 }
 
-String& String::operator=(String rhs)         // Assignment operator overload
-{
-    swap(rhs);
-    return *this;
-}
+String &String::operator=(String rhs) { swap(rhs); return *this; } // Assignment operator overload
 
 std::ostream &operator<<(std::ostream &out, const String &rhs) { return out << rhs.str; }
 
