@@ -1,109 +1,107 @@
 //  String class test program
 //
 //  Name:  XXX
-//  Tests: XXX 
+//  Tests: XXX
 //
 
 #include "string.hpp"
 #include <cassert>
-#include <iostream> 
+#include <iostream>
 
 //===========================================================================
-int main ()
-{
-    {
-        //------------------------------------------------------
-        // SETUP FIXTURE
-        String  left(X);
-        String  right(X);
+int main() {
+  {
+    //------------------------------------------------------
+    // SETUP FIXTURE
+    String left(X);
+    String right(X);
 
-        // TEST
-        RESULT_TYPE result = (left OP right);
+    // TEST
+    RESULT_TYPE result = (left OP right);
 
-        // VERIFY
-        assert(result == X);
-        assert(left   == X);
-        assert(right  == X);
-    }
+    // VERIFY
+    assert(result == X);
+    assert(left == X);
+    assert(right == X);
+  }
 
-    {
-        //------------------------------------------------------
-        // SETUP FIXTURE
-        String  left(X);
-        String  right(X);
+  {
+    //------------------------------------------------------
+    // SETUP FIXTURE
+    String left(X);
+    String right(X);
 
-        // TEST
-        RESULT_TYPE result = (left OP right);
+    // TEST
+    RESULT_TYPE result = (left OP right);
 
-        // VERIFY
-        assert(result == X);
-        assert(left   == X);
-        assert(right  == X);
-    }
+    // VERIFY
+    assert(result == X);
+    assert(left == X);
+    assert(right == X);
+  }
 
-    {
-        //------------------------------------------------------
-        // SETUP FIXTURE
-        String  left(X);
-        String  right(X);
+  {
+    //------------------------------------------------------
+    // SETUP FIXTURE
+    String left(X);
+    String right(X);
 
-        // TEST
-        RESULT_TYPE result = (left OP right);
+    // TEST
+    RESULT_TYPE result = (left OP right);
 
-        // VERIFY
-        assert(result == X);
-        assert(left   == X);
-        assert(right  == X);
-    }
+    // VERIFY
+    assert(result == X);
+    assert(left == X);
+    assert(right == X);
+  }
 
-    {
-        //------------------------------------------------------
-        // SETUP FIXTURE
-        String  left(X);
-        String  right(X);
+  {
+    //------------------------------------------------------
+    // SETUP FIXTURE
+    String left(X);
+    String right(X);
 
-        // TEST
-        RESULT_TYPE result = (left OP right);
+    // TEST
+    RESULT_TYPE result = (left OP right);
 
-        // VERIFY
-        assert(result == X);
-        assert(left   == X);
-        assert(right  == X);
-    }
+    // VERIFY
+    assert(result == X);
+    assert(left == X);
+    assert(right == X);
+  }
 
-    {
-        //------------------------------------------------------
-        // SETUP FIXTURE
-        String  left(X);
-        String  right(X);
+  {
+    //------------------------------------------------------
+    // SETUP FIXTURE
+    String left(X);
+    String right(X);
 
-        // TEST
-        RESULT_TYPE result = (left OP right);
+    // TEST
+    RESULT_TYPE result = (left OP right);
 
-        // VERIFY
-        assert(result == X);
-        assert(left   == X);
-        assert(right  == X);
-    }
+    // VERIFY
+    assert(result == X);
+    assert(left == X);
+    assert(right == X);
+  }
 
-    {
-        //------------------------------------------------------
-        // SETUP FIXTURE
-        String  left(X);
-        String  right(X);
+  {
+    //------------------------------------------------------
+    // SETUP FIXTURE
+    String left(X);
+    String right(X);
 
-        // TEST
-        RESULT_TYPE result = (left OP right);
+    // TEST
+    RESULT_TYPE result = (left OP right);
 
-        // VERIFY
-        assert(result == X);
-        assert(left   == X);
-        assert(right  == X);
-    }
-    
+    // VERIFY
+    assert(result == X);
+    assert(left == X);
+    assert(right == X);
+  }
 
-    // ADD ADDITIONAL TESTS AS NECESSARY
-    
-    std::cout << "Done testing XXX." << std::endl;
-    return 0;
+  // ADD ADDITIONAL TESTS AS NECESSARY
+
+  std::cout << "Done testing XXX." << std::endl;
+  return 0;
 }
