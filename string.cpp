@@ -125,29 +125,37 @@ void String::swap(String &rhs) {
   str = tempString;
 }
 
+// std::vector<String> String::split(char splitChar) const {
+//   std::vector<String> result; // creating String type vector
+//   int currentPos = 0;         // start
+//   while (findch(currentPos + 1, splitChar) != -1) {
+//     if (splitChar == ' ') {
+//       result.push_back(substr(currentPos, findch(currentPos, splitChar) -
+//       1)); currentPos = (findch(currentPos, splitChar)) + 1;
+//     } else {
+//       result.push_back(substr(currentPos, findch(currentPos, splitChar) -
+//       1)); currentPos = (findch(currentPos, splitChar)) + 1;
+//       result.push_back("");
+//     }
+//   }
+//   result.push_back(substr(currentPos, this->length()));
+//   return result;
+// }
+
 std::vector<String> String::split(char splitChar) const {
-  std::vector<String> result; // creating String type vector
-  int currentPos = 0;         // start
-  while (findch(currentPos + 1, splitChar) != -1) {
-    if (splitChar == ' ') {
-      result.push_back(substr(currentPos, findch(currentPos, splitChar) - 1));
-      currentPos = (findch(currentPos, splitChar)) + 1;
-    } else {
-      result.push_back(substr(currentPos, findch(currentPos, splitChar) - 1));
-      currentPos = (findch(currentPos, splitChar)) + 1;
-      result.push_back("");
-    }
+  std::vector<String> result;
+  int currentPos = 0;
+  int nextPos;
+
+  while ((nextPos = findch(currentPos, splitChar)) != -1) {
+    result.push_back(substr(currentPos, nextPos - 1));
+    currentPos = nextPos + 1;
   }
+  result.push_back(substr(currentPos, length()));
 
-  result.push_back(substr(currentPos, this->length()));
-
-  // while (findch(currentPos + 1, splitChar) != - 1)
-  // {
-  //   result.push_back(substr(currentPos, findch(currentPos + 1, splitChar) -
-  //   1)); currentPos = (findch(currentPos + 1, splitChar)) + 1;
-  // }
-  // result.push_back(substr(currentPos, this->length()));
-
+  if (length() == splitChar) {
+    result.push_back("");
+  }
   return result;
 }
 

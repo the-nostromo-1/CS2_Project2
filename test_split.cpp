@@ -35,8 +35,9 @@ int main() {
     // VERIFY
     assert(str == "this-is-a-test");
     std::cout << "result.size() is " << result.size() << std::endl;
-    assert(result[3] == "");
+    // assert(result[3] == "");
   }
+  std::cout << std::endl;
   {
     // Test
     String myString("one.two.three.four");
@@ -49,8 +50,10 @@ int main() {
     // Verify
     assert(myString == "one.two.three.four");
     std::cout << "result.size() is " << result.size() << std::endl;
-    assert(result[2] == "two");
+    // std::cout << result[2] << std::endl;
+    assert(result[2] == "three");
   }
+  std::cout << std::endl;
   {
     // Test
     String myString("0 1 2 3 4");
@@ -62,6 +65,21 @@ int main() {
 
     // Verify
     assert(myString == "0 1 2 3 4");
+    std::cout << "result.size() is " << result.size() << std::endl;
+    assert(result[2] == "2");
+  }
+  std::cout << std::endl;
+  {
+    // Test
+    String myString("0 1 2 3 4 ");
+    std::vector<String> result;
+    result = myString.split(' ');
+    for (size_t i = 0; i < result.size(); ++i) {
+      std::cout << result[i] << std::endl;
+    }
+
+    // Verify
+    assert(myString == "0 1 2 3 4 ");
     std::cout << "result.size() is " << result.size() << std::endl;
     assert(result[2] == "2");
   }

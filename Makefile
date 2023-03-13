@@ -128,22 +128,22 @@ oracle: $(CTOR) $(REL) $(COPY) $(OPS)
 # Comment out one's you don't want to run.
 #
 oracle-mem: $(CTOR) $(REL) $(COPY) $(OPS)
-	valgrind ./testoracle_ctor_default
-	#	valgrind ./testoracle_equal
-	#	valgrind ./testoracle_ctor_char
-	#	valgrind ./testoracle_ctor_charArray
-	#	valgrind ./testoracle_ctor_copy
-	#	valgrind ./testoracle_assign
-	#	valgrind ./testoracle_swap_assign
-	#	valgrind ./testoracle_lessThan
-	#	valgrind ./testoracle_concat
-	#	valgrind ./testoracle_subscript
-	#	valgrind ./testoracle_len_cap
-	#	valgrind ./testoracle_input
-	#	valgrind ./testoracle_substring
-	#	valgrind ./testoracle_find_char
-	#	valgrind ./testoracle_find_string
-	#	valgrind ./testoracle_split
+#	valgrind ./testoracle_ctor_default
+#	valgrind ./testoracle_equal
+#	valgrind ./testoracle_ctor_char
+#	valgrind ./testoracle_ctor_charArray
+#	valgrind ./testoracle_ctor_copy
+#	valgrind ./testoracle_assign
+#	valgrind ./testoracle_swap_assign
+#	valgrind ./testoracle_lessThan
+#	valgrind ./testoracle_concat
+#	valgrind ./testoracle_subscript
+#	valgrind ./testoracle_len_cap
+	valgrind -s ./testoracle_input
+#	valgrind ./testoracle_substring
+#	valgrind ./testoracle_find_char
+#	valgrind ./testoracle_find_string
+#	valgrind ./testoracle_split
 
 
 ###############################################################
