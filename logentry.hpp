@@ -19,46 +19,43 @@
 
 class Date {
 public:
-            Date() {};
-private:
-    String  day, month;
-    int     year;
-};
+  Date(){};
 
+private:
+  String day, month;
+  int year;
+};
 
 class Time {
 public:
-    Time() {};
+  Time(){};
+
 private:
-    int hour, minute, second;
+  int hour, minute, second;
 };
-
-
 
 class LogEntry {
 public:
-            LogEntry() {};
-            LogEntry(String);
-    friend  std::ostream& operator<<(std::ostream&, const LogEntry&);
+  LogEntry(){};
+  LogEntry(String);
+  friend std::ostream &operator<<(std::ostream &, const LogEntry &);
 
 private:
-    String  host;
-    Date    date;
-    Time    time;
-    String  request;
-    String  status;
-    int     number_of_bytes;
+  String host;
+  Date date;
+  Time time;
+  String request;
+  String status;
+  int number_of_bytes;
 };
-
 
 //
 // Free functions
 //
 
-std::vector<LogEntry>   parse       (std::istream&);
-void                    output_all  (std::ostream&, const std::vector<LogEntry> &);
-void                    by_host     (std::ostream&, const std::vector<LogEntry> &);
-int                     byte_count  (const std::vector<LogEntry>&);
+std::vector<LogEntry> parse(std::istream &);
+void output_all(std::ostream &, const std::vector<LogEntry> &);
+void by_host(std::ostream &, const std::vector<LogEntry> &);
+int byte_count(const std::vector<LogEntry> &);
 
 #endif
-

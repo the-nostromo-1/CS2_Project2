@@ -1,57 +1,48 @@
 //
 //
-// File:        logentry.cpp  
-//       
+// File:        logentry.cpp
+//
 // Version:     1.0
-// Date:        
-// Author:      
+// Date:
+// Author:
 //
 // Description: Class implementation for a log entry.
 //
 //
 
-#include "string.hpp"
 #include "logentry.hpp"
+#include "string.hpp"
 #include <iostream>
 #include <vector>
 
 // REQUIRES:
-// ENSURES: 
+// ENSURES:
 //
 LogEntry::LogEntry(String s) {
-    // ...
-    std::vector<String> vec = s.split(' ');
-    
+  // ...
+  std::vector<String> vec = s.split(' ');
 }
 
 // REQUIRES:
-// ENSURES: 
+// ENSURES:
 //
-std::vector<LogEntry> parse(std::istream& in) {
-    std::vector<LogEntry> result;
+std::vector<LogEntry> parse(std::istream &in) {
+  std::vector<LogEntry> result;
 
-    return result;
+  return result;
 }
 
 // REQUIRES:
-// ENSURES: 
+// ENSURES:
 //
-void output_all(std::ostream& out, const std::vector<LogEntry> &) {
-    
-}
+void output_all(std::ostream &out, const std::vector<LogEntry> &) {}
 
 // REQUIRES:
-// ENSURES: 
+// ENSURES:
 //
-void by_host(std::ostream& out, const std::vector<LogEntry>&) {
-
-}
+void by_host(std::ostream &out, const std::vector<LogEntry> &) {}
 
 /// REQUIRES:
-// ENSURES: 
+// ENSURES:
 //
-int byte_count(const std::vector<LogEntry> &) {
-    
-    return 0;
-}
-
+int byte_count(const std::vector<LogEntry> &) { return 0; }

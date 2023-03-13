@@ -10,23 +10,21 @@
 // Class Constructors
 ///////////////////////////////////////////////////////
 
-String::String() // Default Constructor
-{
+String::String() { // Default constructor
   str = new char[1];
   str[0] = '\0';
   stringSize = 1;
 }
 
-String::String(char newChar) // Character Constructor
-{
+String::String(char newChar) { // Character constructor
   str = new char[2];
   str[0] = newChar;
   str[1] = '\0';
   stringSize = 2;
 }
 
-String::String(const char charArray[]) // Character Array Constructor
-{
+// Character array constructor
+String::String(const char charArray[]) {
   stringSize = 0;
   while (charArray[stringSize] != '\0') {
     ++stringSize;
@@ -39,8 +37,8 @@ String::String(const char charArray[]) // Character Array Constructor
   str[stringSize - 1] = '\0';
 }
 
-String::String(const String &rhs) // Copy Constructor
-{
+// Copy constructor
+String::String(const String &rhs) {
   stringSize = rhs.stringSize;
   str = new char[stringSize];
   for (int i = 0; i < stringSize; ++i) {
@@ -48,19 +46,18 @@ String::String(const String &rhs) // Copy Constructor
   }
 }
 
-String::~String() { delete[] str; } // Destructor
+// Destructor
+String::~String() { delete[] str; }
 
 ///////////////////////////////////////////////////////
 // Class Methods
 ///////////////////////////////////////////////////////
 
-int String::capacity() const {
+int String::capacity() const { // Max chars that can be stored
   return (this->length());
-} // max chars that can be stored
+}
 
-int String::findch(
-    int pos, char myChar) const // Location of character starting at a position
-{
+int String::findch(int pos, char myChar) const {
   int length = 0;
   while (str[length] != '\0') {
     ++length;
