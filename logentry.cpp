@@ -1,5 +1,4 @@
 //
-//
 // File:        logentry.cpp
 //
 // Version:     1.0
@@ -7,7 +6,6 @@
 // Author:
 //
 // Description: Class implementation for a log entry.
-//
 //
 
 #include "logentry.hpp"
@@ -42,7 +40,7 @@ void output_all(std::ostream &out, const std::vector<LogEntry> &) {}
 //
 void by_host(std::ostream &out, const std::vector<LogEntry> &) {}
 
-/// REQUIRES:
+// REQUIRES:
 // ENSURES:
 //
 int byte_count(const std::vector<LogEntry> &) { return 0; }

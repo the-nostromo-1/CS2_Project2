@@ -37,7 +37,6 @@ MYREL  = test_equal test_lessThan
 MYOPS  = test_concat test_subscript test_len_cap test_input test_find_char test_find_string test_substring
 MYM2   = test_ctor_copy test_swap_assign test_split
 
-
 ###############################################################
 # Names of testoracle files
 # Include or exclude ones you don't want to compile
@@ -63,7 +62,6 @@ string: string.hpp string.cpp
 string.o: string.hpp string.cpp
 	$(CPP) -c $(OPTIONS) string.cpp -o string.o
 
-
 ###############################################################
 # Run all of your tests for Milestone 1, 2, and 3.
 #
@@ -88,7 +86,6 @@ tests: $(MYCTOR) $(MYREL) $(MYOPS) $(MYM2)
 	./test_ctor_copy
 	./test_swap_assign
 	./test_split
-
 
 ###############################################################
 # Compile all test programs
@@ -139,12 +136,11 @@ oracle-mem: $(CTOR) $(REL) $(COPY) $(OPS)
 #	valgrind ./testoracle_concat
 #	valgrind ./testoracle_subscript
 #	valgrind ./testoracle_len_cap
-	valgrind -s ./testoracle_input
+	valgrind ./testoracle_input
 #	valgrind ./testoracle_substring
 #	valgrind ./testoracle_find_char
 #	valgrind ./testoracle_find_string
 #	valgrind ./testoracle_split
-
 
 ###############################################################
 # Compile all test programs
@@ -187,7 +183,6 @@ checkM1: $(M1CTOR) $(M1REL) $(M1OPS)
 	./testM1_substring
 	./testM1_find_char
 	./testM1_find_string
-
 
 ###############################################################
 # Compile all test programs for Milestone 1 check.
